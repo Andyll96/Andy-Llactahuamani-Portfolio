@@ -1,0 +1,96 @@
+/*https://www.w3schools.com/CSSref/css_selectors.asp  CSS Selector Reference*/
+/*https://css-tricks.com/reboot-resets-reasoning/*/
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block;
+}
+
+[hidden]{
+    display: none;
+}
+
+audio, canvas, video {
+    display: inline-block;
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+hr {
+    /*thematic break*/
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+code {
+    font-family: monospace, serif;
+    font-size: 1em;
+}
+
+img {
+    border: 0;
+}
+
+figure {
+    margin: 0;
+}
+
+svg:not(:root) {
+    /*keeps svg images from overflowing*/
+    overflow: hidden;
+}
+
+/*https://www.w3schools.com/tags/tryit.asp?filename=tryhtml_fieldset*/
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+    border: 0;
+    padding: 0;
+}
+
+/*select refers to a drop down menu*/
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+
+button, input {
+    line-height: normal;
+}
+
+button, select {
+    text-transform: normal;
+}
+
+button::-moz-focus-inner, input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
