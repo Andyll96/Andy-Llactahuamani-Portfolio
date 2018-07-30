@@ -2,6 +2,10 @@ body {
     background-color: #5e5e5e;
 }
 
+::-webkit-scrollbar {
+    display:none;
+}
+
 header {
     padding: 0;
     margin: 0;
@@ -58,20 +62,22 @@ header {
 #hero_word {
     grid-column: 2;
     grid-row: 2;
-    justify-self: center;
-    align-self: center;
-    transform: translateY(-10%);
+
+    width: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #hero_word h1 {
     font-family: Latin Modern Roman;
-    font-size: 150pt;
+    font-size: 100pt;
+    transform: translateY(-10%);
 }
 
 #social {
     grid-row: 2;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(5, 1fr);
     row-gap: 20%
 }
@@ -81,12 +87,14 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20pt;
+    font-size: 15pt;
 }
 
 .social a{
     transform: rotateZ(-90deg);
     color: white;
+    padding: 10px;
+    border: white solid 1px;
 }
 
 #linkedin{
