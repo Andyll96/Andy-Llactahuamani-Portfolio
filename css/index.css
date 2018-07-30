@@ -1,3 +1,93 @@
-body{
-    margin: 20%;
+/*For Scrollbar*/
+/* ::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: rgb(31, 47, 95);
+    background-image: url(../images/web_assets/noisy-texture-100x100-o2-d10-c-0f1533-t1.png);
+}
+
+::-webkit-scrollbar-track{
+    border-radius: 10px;
+    background-color: rgb(24, 35, 68);
+    background-image: url(../images/web_assets/noisy-texture-100x100-o2-d10-c-0f1533-t1.png);
+} */
+
+*{
+    border: black dashed 1px;
+}
+
+header{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+#header_bar{
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 20px;
+    grid-column-start: 2;
+}
+
+/*keeps the headerbar from shrinking to 0px https://www.youtube.com/watch?v=FEmysQARWFU&t=208s*/
+#header_bar::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+nav{
+    /* border: black 2px dashed; */
+    font-family: Montserrat;
+    font-size: 22px;
+    float: right;
+    transform: translateY(100%);
+}
+
+nav ul{
+    margin: 0;
+    padding: 0;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 25px;
+}
+
+nav a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+#logo_mini{
+    height: 100px;
+    float: left;
+    border: black dashed 1px;
+}
+
+#hero_word{
+    font-family: Latin Modern Roman;
+    color: black;
+    font-size: 80pt;
+    text-align: center;
+    border: 1px black dashed;
+}
+
+section{
+    width: 100%;
+    height: 100vh;
+}
+
+footer{
+    width: 100%;
+    height: 30vh;
+}
+
+hr{
+    width: 80%
 }
