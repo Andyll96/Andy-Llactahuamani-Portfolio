@@ -128,6 +128,10 @@ header {
     flex-direction: row-reverse;
 }
 
+#quote_section blockquote span{
+    will-change: opacity;
+    opacity: 0;
+}
 
 hr {
     width: 80%
