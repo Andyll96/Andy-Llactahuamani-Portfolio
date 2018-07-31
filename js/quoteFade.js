@@ -30,6 +30,7 @@ function fadeWords(words){
         ],
         {
             duration: 1000,
+            easing: 'ease-in-out',
             delay: getRand(500, 3300),
             fill: 'forwards'
         }
