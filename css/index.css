@@ -129,8 +129,15 @@ header {
 }
 
 #quote_section blockquote span{
-    will-change: opacity;
+    will-change: opacity, filter;
     opacity: 0;
+    filter: blur(0px);
+}
+
+cite{
+    will-change: opacity, filter;
+    opacity: 0;
+    filter: blur(0px);
 }
 
 hr {
