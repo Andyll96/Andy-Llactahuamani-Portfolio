@@ -59,8 +59,8 @@ window.addEventListener('scroll', function (e) {
     if (isInViewport(quote) && triggered == false) {
         splitWords();
         cite.animate([
-            { opacity: 0, filter: "blur("+getRand(2,4)+"px)" },
-            { opacity: 1, filter: "blur(0px)" }
+            { opacity: 0 },
+            { opacity: 1 }
         ],{
             duration: 1000,
             easing: 'ease-in-out',
