@@ -1,10 +1,10 @@
-body {
-    background-color: #414963;
-}
-
 /* *{
     border: black dashed 1px;
 } */
+
+html{
+    scroll-behavior: smooth;
+}
 
 ::-webkit-scrollbar {
     display:none;
@@ -20,7 +20,9 @@ header {
     grid-template-columns: 10% 80% 10%;
     grid-template-rows: 15% 85%;
     
-    /*background-image: url(../images/DSC_0123.jpg);*/
+    background-image: url(../images/DSC_0115.jpg);
+    background-attachment: fixed; /*gives parralax effect*/
+    background-color: #023A40;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -130,10 +132,13 @@ section{
 
 .main{
     display: grid;
+    /* height: 80vh; */
 }
 
 #quote_section {
     grid-template-columns: 10% 40% 40% 10%;
+    height: 60vh;
+    background-color: #F24452;
 }
 
 #quote_container {
@@ -158,13 +163,18 @@ section{
 }
 
 #stinger_container iframe {
+    height: 70%;
     width: 100%;
-    height: 40%;
 }
 
 #photo_section{
     grid-template-columns: 70% 30%;
     grid-template-rows: 100%;
+    background-color: #048ABF;
+}
+
+#photo_container{
+    border: red dashed 3px;
 }
 
 #photo_links_container{
@@ -186,6 +196,7 @@ section{
 
 #film_section{
     grid-template-rows: 75% 25%;
+    background-color: #590222;
 }
 
 #recent_film_container{
@@ -208,6 +219,11 @@ section{
 #code_section{
     grid-template-columns: 40% 60%;
     grid-template-rows: 75% 25%;
+    background-color: #91E9F2;
+}
+
+#github_container{
+    border: red dashed 3px;
 }
 
 #description_container{
@@ -239,4 +255,5 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #023A40;
 }
