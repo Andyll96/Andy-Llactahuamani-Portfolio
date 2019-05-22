@@ -163,6 +163,8 @@ section{
 #stinger_container iframe {
     height: 70%;
     width: 100%;
+
+    border: solid white 1px;
 }
 
 #photo_section{
@@ -206,6 +208,7 @@ section{
 #recent_film_container iframe{
     width: 80%;
     height: 90%;
+    border: solid white 1px;
 }
 
 #film_links_container{
@@ -232,7 +235,7 @@ section{
     justify-content: center;
     align-items: center;
     padding: 10%;
-    font-size: 15px;
+    font-size: 20px;
     text-transform: uppercase;
     
 }
@@ -249,34 +252,74 @@ section{
 
 /* ------------------------FOOTER-START------------------------ */
 footer {
-    /* overflow: scroll; */
-    width: 100%;
-    height: 100vh;
+    height: 60vh;
     background-color: #023A40;
     font-size: 18px;
     text-transform: uppercase;
 
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
+}
+
+footer #prompt{
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-#form_container{
+footer form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
-
-    border-radius: 10px;
-    padding: 20px;
+    height: 80%;
 }
 
-input[type=text], input[type=email], textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            margin-top: 6px;
-            margin-bottom: 16px;
-            resize: vertical;
-        }
+footer form #input_fields{
+    justify-content: space-evenly;
+}
+
+footer form #msg{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    margin-bottom: 15px;
+
+}
+
+footer form #msg textarea{
+    resize: none;
+}
+
+footer form #msg input[type=submit]{
+    width: 15%;
+    height: 15%;
+    background: transparent;
+    border: solid white 1px;
+    color: white;
+    margin-top: 20px;
+}
+
+footer form #msg input[type=submit]:hover{
+    color: blue;
+}
+
+footer form #input_fields, footer form #msg{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 5px;
+}
+
+footer form #input_fields input, footer form #msg textarea{
+    background: transparent;
+    border: none;
+    border-bottom: solid white 1px;
+    outline: none;
+    
+}
+
 /* ------------------------FOORTER-END------------------------ */
