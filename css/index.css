@@ -20,9 +20,9 @@ header {
     grid-template-columns: 10% 80% 10%;
     grid-template-rows: 15% 85%;
     
-    background-image: url(../images/DSC_0115.jpg);
+    /* background-image: url(../images/DSC_0115.jpg); */
     background-attachment: fixed; /*gives parralax effect*/
-    background-color: #023A40;
+    background-color: #2E4D59;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -136,7 +136,7 @@ section{
 #quote_section {
     grid-template-columns: 10% 40% 40% 10%;
     height: 60vh;
-    background-color: #F24452;
+    background-color: #466E73;
 }
 
 #quote_container {
@@ -170,7 +170,7 @@ section{
 #photo_section{
     grid-template-columns: 70% 30%;
     grid-template-rows: 100%;
-    background-color: #048ABF;
+    background-color: #7CA69A;
 }
 
 #photo_container{
@@ -196,7 +196,7 @@ section{
 
 #film_section{
     grid-template-rows: 75% 25%;
-    background-color: #590222;
+    background-color: #F2E3B3;
 }
 
 #recent_film_container{
@@ -220,7 +220,7 @@ section{
 #code_section{
     grid-template-columns: 40% 60%;
     grid-template-rows: 75% 25%;
-    background-color: #91E9F2;
+    background-color: #2E4D59;
 }
 
 #github_container{
@@ -253,7 +253,7 @@ section{
 /* ------------------------FOOTER-START------------------------ */
 footer {
     height: 60vh;
-    background-color: #023A40;
+    background-color: #466E73;
     font-size: 18px;
     text-transform: uppercase;
 

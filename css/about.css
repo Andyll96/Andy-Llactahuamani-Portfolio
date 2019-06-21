@@ -1,7 +1,3 @@
-body{
-    background-color: #f6d2a9;
-}
-
 #header_bar {
     grid-column-start: 2;
     overflow: hidden;
