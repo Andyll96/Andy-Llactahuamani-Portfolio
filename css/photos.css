@@ -98,9 +98,14 @@ header{
     transition: all 0.6s ease-out;
 }
 
+.text h1{
+    text-shadow: 0px 7px 3px rgba(0,0,0,0.44);
+}
+
 .text h2{
     opacity: 0;
     transform: translateY(25px);
+    text-shadow: 0px 7px 3px rgba(0,0,0,0.44);
     transition: all 0.6s ease-out;
 }
 
