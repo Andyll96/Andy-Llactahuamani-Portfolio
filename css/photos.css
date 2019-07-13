@@ -1,6 +1,6 @@
-*{
-    /* border: red dashed 1px; */
-}
+/* *{
+    border: red dashed 1px;
+} */
 
 html{
     scroll-behavior: smooth;
@@ -11,7 +11,7 @@ html{
 }
 
 body{
-    background-color:white;
+    background-color:#7CA69A;
 }
 
 header{
@@ -77,8 +77,6 @@ header{
     align-items: center;
     color: black;
     display: relative;
-    /* background-color: #9ad2ff83; */
-    /* border: green dashed 2px; */
 }
 
 .album img{
@@ -89,36 +87,45 @@ header{
 }
 
 .text{
-    /* border: red dashed 5px; */
     position: absolute;
     color: white;
     font-family: Latin Modern Roman;
     text-align: center;
 
-    transition: all 0.6s ease-out;
+    transition: all 1s ease-out;
 }
 
 .text h1{
-    text-shadow: 0px 7px 3px rgba(0,0,0,0.44);
+    font-weight: 400;
+    transform: translateY(50%);
+    transition: all 1s ease-in-out;
 }
 
 .text h2{
+    font-family: Montserrat;
+    font-weight: 200;
     opacity: 0;
-    transform: translateY(25px);
+    letter-spacing: -4px;
     text-shadow: 0px 7px 3px rgba(0,0,0,0.44);
-    transition: all 0.6s ease-out;
+    transition: all 1s ease-out;
 }
 
 .album:hover .text{
-    transform:scale(1.4);
+    transform:scale(1.3);
+}
+
+.album:hover .text h1{
+    transform: translateY(25%);
+
 }
 
 .album:hover .text h2{
     opacity: 1;    
     transform: translateY(0px);
+    letter-spacing: 0px;
 }
 
 .album:hover img{
     transform: scale(1.1);
-    box-shadow: 0px 35px 77px -17px rgb(255, 205, 113);
+    box-shadow: 0px 35px 77px -17px rgb(139, 196, 178);
 }
