@@ -1,1 +1,0 @@
-// Research Immediatly Invoked Function Expressions in javascript to figure out (function(){...})(window)
