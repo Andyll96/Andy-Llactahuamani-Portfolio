@@ -9,13 +9,13 @@ const Home = () => {
                 <h2>Photographer • Developer • Filmmaker</h2>
 
                 <div>
-                    <a href='https://www.github.com/andyll96' target='_blank'>
+                    <a href='https://www.github.com/andyll96' target='_blank' rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href='https://www.linkedin.com/in/andy-llactahuamani-6386b5164/' target='_blank'>
+                    <a href='https://www.linkedin.com/in/andy-llactahuamani-6386b5164/' target='_blank' rel="noopener noreferrer">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href='https://www.instagram.com/andysll' target='_blank'>
+                    <a href='https://www.instagram.com/andysll' target='_blank' rel="noopener noreferrer">
                         <i class='fab fa-instagram' />
                     </a>
                 </div>
@@ -43,13 +43,13 @@ const Home = () => {
             <footer>
                 <h1>Something Inspirational</h1>
                 <div>
-                    <a href='https://www.github.com/andyll96' target='_blank'>
+                    <a href='https://www.github.com/andyll96' target='_blank' rel="noopener noreferrer">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href='https://www.linkedin.com/in/andy-llactahuamani-6386b5164/' target='_blank'>
+                    <a href='https://www.linkedin.com/in/andy-llactahuamani-6386b5164/' target='_blank' rel="noopener noreferrer">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href='https://www.instagram.com/andysll' target='_blank'>
+                    <a href='https://www.instagram.com/andysll' target='_blank' rel="noopener noreferrer">
                         <i class='fab fa-instagram' />
                     </a>
                 </div>
