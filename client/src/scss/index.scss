@@ -81,13 +81,25 @@ header {
     color: white;
     font-size: 1.5rem;
   }
+
+  .container-socials{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;  
+    // grid-template-areas: 'socials fa-gap-lines header';
+
+    .i-container{
+      display: flex;
+      justify-content: center;
+    }
+    i{
+      color: white;
+    }
+  }
 }
 
-.socials a {
-  padding: 0 0.8rem;
-
-  i {
-    height: 2rem;
+.socials {
+  a{
+    padding: 0 0.8rem;
   }
 }
 
