@@ -5,7 +5,7 @@
 * {
   margin: 0;
   padding: 0;
-  //   border: black 1px dashed;
+  // border: black 1px dashed;
 }
 
 body {
@@ -16,7 +16,8 @@ body {
 
 ::-webkit-scrollbar {
   width: 0px;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent;
+  /* make scrollbar transparent */
 }
 
 // Navbar
@@ -58,14 +59,10 @@ a {
 
 // Home Page
 header {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  
   h1 {
-    margin-top: -10rem;
     font-family: Old Standard, serif;
     font-weight: normal;
     text-align: center;
@@ -73,21 +70,23 @@ header {
     letter-spacing: 0.3rem;
     text-transform: uppercase;
     color: white;
+    display: flex;
+    flex-direction: column-reverse;
   }
 
-  h2{
-      font-family: Poppins, sans-serif;
-      font-weight: normal;
-      text-align: center;
-      color: white;
-      font-size: 1.5rem;
+  h2 {
+    font-family: Poppins, sans-serif;
+    font-weight: normal;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
   }
 }
 
 .socials a {
   padding: 0 0.8rem;
-  
-  i{
+
+  i {
     height: 2rem;
   }
 }
@@ -96,4 +95,5 @@ section,
 header {
   height: 100vh;
   width: 100wh;
+  // border: red 1px solid;
 }
