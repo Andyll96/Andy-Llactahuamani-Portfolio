@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom';
 
 const Navbar = ({title, icon}) => {
     return (
-        <div className='navbar'>
+        <div className='navbar container'>
             <h1>
                 {/* icon */}
-                <i className={icon}/> {title}
+                <i className={icon}> {title}</i>
             </h1>
             <ul>
                 <li><Link to='/'>Home</Link></li>
@@ -27,8 +27,8 @@ Navbar.propTypes = {
 }
 
 Navbar.defaultProps = {
-    title:'ANDY',
-    icon: ''
+    title:'AN\nDY',
+    icon: 'navbar-logo'
 }
 
 export default Navbar
