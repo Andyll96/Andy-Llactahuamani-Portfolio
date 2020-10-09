@@ -11,7 +11,7 @@
 body {
   font-family: Poppins, sans-serif, Old Standard, serif;
   line-height: 1.6;
-  background: #37577c;
+  // background: #37577c;
 }
 
 ::-webkit-scrollbar {
@@ -22,12 +22,16 @@ body {
 
 // Navbar
 .navbar {
+  // This line puts the navbar ontop of the header of the page
+  position: absolute;
+  width: 87.5vw;
   display: flex;
   justify-content: space-between;
-  padding-top: 1rem;
+  // padding-top: 1rem;
   color: white;
+  padding-left: 5rem;
+  padding-right: 5rem;
   margin-top: 1.5rem;
-
   &-logo {
     font-family: Poppins, sans-serif;
     font-style: normal;
@@ -59,6 +63,10 @@ a {
 
 // Home Page
 header {
+  height: 100vh;
+  width: 100wh;
+  background-color: #37577c;
+  padding: 0 5rem;
   display: grid;
   grid-template-rows: repeat(2, auto);
 
@@ -68,6 +76,7 @@ header {
     text-align: center;
     font-size: 4.5rem;
     letter-spacing: 0.3rem;
+    margin-top: 10rem;
     text-transform: uppercase;
     color: white;
     display: flex;
@@ -82,30 +91,46 @@ header {
     font-size: 1.5rem;
   }
 
-  .container-socials{
+  .container-socials {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;  
-    // grid-template-areas: 'socials fa-gap-lines header';
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
 
-    .i-container{
+    .i-container {
       display: flex;
       justify-content: center;
     }
-    i{
+
+    i {
       color: white;
     }
   }
 }
 
 .socials {
-  a{
+  a {
     padding: 0 0.8rem;
   }
 }
 
-section,
-header {
+.section {
   height: 100vh;
   width: 100wh;
-  // border: red 1px solid;
+  padding: 0 5rem;
+
+  &-quote {
+    background-color: white;
+  }
+
+  &-photo {
+    background-color: #37577c;
+  }
+
+  &-film {
+    background-color: white;
+  }
+
+  &-code {
+    background-color: #37577c;
+  }
 }

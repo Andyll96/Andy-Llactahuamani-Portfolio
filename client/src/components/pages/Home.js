@@ -27,7 +27,7 @@ const Home = () => {
       </header>
 
       {/* Quote Section */}
-      <section>
+      <section className='section section-quote'>
         <quote>
           "The audience knows the truth. The world is simple. It's miserable.
           Solid all the way through. But if you could fool them, even for a
@@ -37,13 +37,13 @@ const Home = () => {
       </section>
 
       {/* Photo Section */}
-      <section>
+      <section className='section section-photo'>
         <h1>Photos</h1>
         <Link to="/photos">View Photos</Link>
       </section>
 
       {/* Film Section */}
-      <section>
+      <section className='section section-film'>
         <h1>Film</h1>
         <Link to="/film">View Films</Link>
         {/* This will link to the project page of the currently showing project */}
@@ -51,7 +51,7 @@ const Home = () => {
       </section>
 
       {/* Code Section */}
-      <section>
+      <section className='section section-code'>
         <h1>Code</h1>
         {/* <Link to='/code/d'>View Project</Link> */}
         <Link to="/code">View More</Link>
