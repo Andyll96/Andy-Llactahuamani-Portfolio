@@ -11,13 +11,13 @@ const Home = () => {
         <div className='container-socials'>
           <div className="socials">
             <a href="https://www.github.com/andyll96" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github fa-lg"></i>
+              <i class="fab fa-github fa-2x"></i>
             </a>
             <a href="https://www.linkedin.com/in/andy-llactahuamani-6386b5164/" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-linkedin-in fa-lg"></i>
+              <i class="fab fa-linkedin-in fa-2x"></i>
             </a>
             <a href="https://www.instagram.com/andysll" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-instagram fa-lg" />
+              <i class="fab fa-instagram fa-2x" />
             </a>
           </div>
           <div className='i-container'>
@@ -37,7 +37,7 @@ const Home = () => {
           <h3>~ The Prestige</h3>
         </div>
         <div>
-          <iframe width="480" height="270" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+          <iframe width="480" height="270" src="https://www.youtube.com/embed/X_jcE4awpY8">
           </iframe>
         </div>
 
@@ -45,16 +45,31 @@ const Home = () => {
 
       {/* Photo Section */}
       <section className='section-photo'>
-        <h2>Photos</h2>
+        {/* <h2>Photos</h2> */}
+        <div id='featured-photo-gallery-container'>
+          <div className='featured-photo-gallery'>
+
+          </div>
+          <div className='featured-photo-gallery-nav'>
+            <i class="fas fa-minus fa-2x pg-1"></i>
+            <i class="fas fa-minus fa-2x pg-2"></i>
+            <i class="fas fa-minus fa-2x pg-3"></i>
+          </div>
+        </div>
+
         <Link to="/photos"><span className='button'>View Photos</span></Link>
       </section>
 
       {/* Film Section */}
       <section className='section-film'>
-        <h2>Film</h2>
-        <Link to="/film"><span className='button'>View Films</span></Link>
-        {/* This will link to the project page of the currently showing project */}
-        {/* <Link to='/films/'>View Project</Link> */}
+        <iframe width="760" height="450" src="https://www.youtube.com/embed/X_jcE4awpY8">
+        </iframe>
+
+        <div>
+          <Link to="/film"><span className='button'>View Films</span></Link>
+          {/* This will link to the project page of the currently showing project */}
+          <Link to='/films/'><span className='button'>View Project</span></Link>
+        </div>
       </section>
 
       {/* Code Section */}

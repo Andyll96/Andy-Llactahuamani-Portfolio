@@ -140,10 +140,11 @@ section {
   height: 100vh;
   width: 100wh;
   padding: 0 5rem;
+  overflow: hidden;
 }
 
 .section-quote {
-  height: 65vh;
+  height: 55vh;
   background-color: white;
   display: -ms-grid;
   display: grid;
@@ -189,10 +190,79 @@ section {
 
 .section-photo {
   background-color: #37577c;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
+}
+
+.section-photo a {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.section-photo #featured-photo-gallery-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.section-photo .featured-photo-gallery {
+  border: 4px black solid;
+  height: 75vh;
+  background-color: grey;
+}
+
+.section-photo .featured-photo-gallery-nav {
+  -ms-grid-row-align: center;
+      align-self: center;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1rem;
+  color: grey;
 }
 
 .section-film {
   background-color: white;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-film div {
+  margin-top: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+.section-film div .button {
+  color: black;
+  border: black solid 2px;
 }
 
 .section-code {
