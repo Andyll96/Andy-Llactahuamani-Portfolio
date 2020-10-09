@@ -1,6 +1,14 @@
 .container{
-    // max-width: $website-width;
-    // padding: 0 5rem;
-    overflow: hidden;
-    
+    // overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+    .button{
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        color: white;
+        border: white solid 2px;
+        padding: 0.5rem 1rem;
+    }
 }

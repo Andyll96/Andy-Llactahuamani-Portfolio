@@ -27,11 +27,12 @@ body {
   width: 87.5vw;
   display: flex;
   justify-content: space-between;
-  // padding-top: 1rem;
+  padding-top: 1rem;
   color: white;
   padding-left: 5rem;
   padding-right: 5rem;
   margin-top: 1.5rem;
+
   &-logo {
     font-family: Poppins, sans-serif;
     font-style: normal;
@@ -43,22 +44,23 @@ body {
     color: white;
     text-transform: uppercase;
   }
-}
 
-ul {
-  list-style: none;
-  display: flex;
-}
-
-li {
-  padding: 1rem 1.5rem;
-}
-
-a {
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  color: white;
+  ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  li {
+    padding: 1rem 1.5rem;
+  }
+  
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: white;
+  }
+  
 }
 
 // Home Page
@@ -83,7 +85,7 @@ header {
     flex-direction: column-reverse;
   }
 
-  h2 {
+  h3 {
     font-family: Poppins, sans-serif;
     font-weight: normal;
     text-align: center;
@@ -113,13 +115,43 @@ header {
   }
 }
 
-.section {
+section {
   height: 100vh;
   width: 100wh;
   padding: 0 5rem;
+}
 
+.section{
   &-quote {
+    height: 65vh;
     background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    text-align: center;
+
+    :first-child{
+      display: flex;
+      flex-direction: column;
+      font-size: 1.2rem;
+      letter-spacing: -0.02rem;
+      text-transform: uppercase;
+
+      blockquote{
+        padding: 1rem 4rem;
+      }
+
+      h3{
+        font-family: Old Standard, serif;
+        font-weight: lighter;
+        letter-spacing: 0.3rem;
+      }
+    }
+
+    :last-child{
+      display: flex;
+      justify-content: center;
+    }
   }
 
   &-photo {
@@ -133,4 +165,12 @@ header {
   &-code {
     background-color: #37577c;
   }
+}
+
+footer{
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
