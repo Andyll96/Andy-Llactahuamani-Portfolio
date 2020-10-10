@@ -197,8 +197,11 @@ section {
 }
 
 .section-photo a {
-  -ms-grid-column-align: center;
-      justify-self: center;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-column-align: right;
+      justify-self: right;
+  margin-right: 1rem;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -258,6 +261,7 @@ section {
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
+  grid-gap: 3rem;
 }
 
 .section-film div .button {
@@ -279,6 +283,40 @@ section {
       grid-template-rows: 5fr 1fr;
 }
 
+.section-code .git-container {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+}
+
+.section-code .git-info {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  color: white;
+}
+
+.section-code .git-info h2 {
+  font-family: Old Standard, serif;
+  font-weight: lighter;
+  font-size: 3rem;
+  line-height: 3rem;
+  margin: 1rem 0rem;
+}
+
+.section-code .git-info h3 {
+  color: black;
+  font-weight: normal;
+  margin: 1rem 0rem;
+}
+
+.section-code .git-graph {
+  background-color: grey;
+  border: black 4px solid;
+}
+
 .section-code .links {
   display: -ms-grid;
   display: grid;
@@ -297,36 +335,6 @@ section {
   color: black;
   border: black solid 2px;
   margin: 1rem;
-}
-
-.section-code .git-container {
-  display: -ms-grid;
-  display: grid;
-  grid-gap: 1rem;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
-}
-
-.section-code .git-info {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  color: white;
-}
-
-.section-code .git-info h2 {
-  font-family: Old Standard, serif;
-  font-weight: normal;
-  font-size: 2rem;
-}
-
-.section-code .git-info h3 {
-  color: black;
-}
-
-.section-code .git-graph {
-  background-color: grey;
-  border: black 4px solid;
 }
 
 footer {

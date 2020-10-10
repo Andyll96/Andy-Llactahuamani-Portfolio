@@ -69,9 +69,9 @@ const Home = () => {
         </iframe>
 
         <div>
-          <Link to="/film"><span className='button'>View Films</span></Link>
           {/* This will link to the project page of the currently showing project */}
           <Link to='/films/'><span className='button'>View Project</span></Link>
+          <Link to="/film"><span className='button'>View Films</span></Link>
         </div>
       </section>
 

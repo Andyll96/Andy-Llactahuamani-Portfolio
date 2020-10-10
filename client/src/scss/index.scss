@@ -161,7 +161,9 @@ section {
     grid-template-columns: 3fr 1fr;
 
     a {
-      justify-self: center;
+      grid-column-start: 2;
+      justify-self: right;
+      margin-right: 1rem;
       align-self: center;
     }
 
@@ -199,7 +201,7 @@ section {
       margin-top: 2rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-
+      grid-gap: 3rem;
       .button {
         color: black;
         border: black solid 2px;
@@ -217,6 +219,35 @@ section {
       grid-gap: 2rem;
       grid-template-rows: 5fr 1fr;
     }
+    
+    .git{
+      &-container{
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: 1fr 2fr;
+      }
+      &-info{
+        align-self: center;
+        color: white;
+
+        h2{
+          font-family: Old Standard, serif;font-weight: lighter;
+          font-size: 3rem;
+          line-height: 3rem;
+          margin: 1rem 0rem;
+        }
+
+        h3{
+          color: black;
+          font-weight: normal;
+          margin: 1rem 0rem;
+        }
+      }
+      &-graph{
+        background-color: grey;
+        border: black 4px solid;
+      }
+    }
 
     .links{
       display: grid;
@@ -233,31 +264,6 @@ section {
       }
     }
     
-    .git{
-      &-container{
-        display: grid;
-        grid-gap: 1rem;
-        grid-template-columns: 1fr 2fr;
-      }
-      &-info{
-        align-self: center;
-        color: white;
-
-        h2{
-          font-family: Old Standard, serif;font-weight: normal;
-          font-size: 2rem;
-        }
-
-        h3{
-          color: black;
-        }
-      }
-
-      &-graph{
-        background-color: grey;
-        border: black 4px solid;
-      }
-    }
 
 
 
