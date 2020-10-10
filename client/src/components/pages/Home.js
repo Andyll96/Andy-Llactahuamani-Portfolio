@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FeaturedPhotoGallery from '../layout/FeaturedPhotoGallery';
+import FeaturedCode from '../layout/FeaturedCode';
+
 
 const Home = () => {
   return (
@@ -48,7 +51,7 @@ const Home = () => {
         {/* <h2>Photos</h2> */}
         <div id='featured-photo-gallery-container'>
           <div className='featured-photo-gallery'>
-
+            <FeaturedPhotoGallery/>
           </div>
           <div className='featured-photo-gallery-nav'>
             <i class="fas fa-minus fa-2x pg-1"></i>
@@ -74,9 +77,7 @@ const Home = () => {
 
       {/* Code Section */}
       <section className='section-code'>
-        <h2>Code</h2>
-        {/* <Link to='/code/d'>View Project</Link> */}
-        <Link to="/code"><span className='button'>View More</span></Link>
+        <FeaturedCode/>
       </section>
     </div>
   );
