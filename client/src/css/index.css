@@ -1,3 +1,7 @@
+.container {
+  overflow: hidden;
+}
+
 a {
   text-decoration: none;
 }
@@ -10,9 +14,30 @@ a .button {
   padding: 0.5rem 1rem;
 }
 
+.px-1 {
+  padding: 0rem 1rem;
+}
+
+.px-2 {
+  padding: 0rem 2rem;
+}
+
+.px-3 {
+  padding: 0rem 3rem;
+}
+
+.px-4 {
+  padding: 0rem 4rem;
+}
+
+.px-5 {
+  padding: 0rem 5rem;
+}
+
 * {
   margin: 0;
   padding: 0;
+  border: black 1px dashed;
 }
 
 body {
@@ -36,7 +61,6 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding-top: 1rem;
-  color: white;
   padding-left: 5rem;
   padding-right: 5rem;
   margin-top: 1.5rem;
@@ -69,7 +93,7 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.5rem;
-  color: white;
+  color: black;
 }
 
 header {
@@ -363,5 +387,52 @@ footer h3 {
 footer a {
   color: black;
   margin: 1rem;
+}
+
+.photo-header {
+  height: 80vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 5fr 1fr;
+      grid-template-rows: 5fr 1fr;
+}
+
+.photo-header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.photo-header h1 {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  font-family: Old Standard, serif;
+  font-weight: normal;
+  font-size: 4.5rem;
+}
+
+.photo-header .album-description {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+}
+
+.photo-header .album-titles {
+  -ms-grid-row: 2;
+      grid-row-start: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.photo-gallery {
+  height: 200vh;
+  background-color: silver;
 }
 /*# sourceMappingURL=index.css.map */

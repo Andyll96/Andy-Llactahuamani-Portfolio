@@ -5,7 +5,7 @@
 * {
   margin: 0;
   padding: 0;
-  // border: black 1px dashed;
+  border: black 1px dashed;
 }
 
 body {
@@ -28,7 +28,6 @@ body {
   display: flex;
   justify-content: space-between;
   padding-top: 1rem;
-  color: white;
   padding-left: 5rem;
   padding-right: 5rem;
   margin-top: 1.5rem;
@@ -58,7 +57,7 @@ body {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 1.5rem;
-    color: white;
+    color: black;
   }
 
 }
@@ -202,6 +201,7 @@ section {
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-gap: 3rem;
+
       .button {
         color: black;
         border: black solid 2px;
@@ -212,58 +212,63 @@ section {
   &-code {
     background-color: #37577c;
 
-    .featured-code{
+    .featured-code {
       height: inherit;
       padding: 1rem;
       display: grid;
       grid-gap: 2rem;
       grid-template-rows: 5fr 1fr;
     }
-    
-    .git{
-      &-container{
+
+    .git {
+      &-container {
         display: grid;
         grid-gap: 1rem;
         grid-template-columns: 1fr 2fr;
       }
-      &-info{
+
+      &-info {
         align-self: center;
         color: white;
 
-        h2{
-          font-family: Old Standard, serif;font-weight: lighter;
+        h2 {
+          font-family: Old Standard, serif;
+          font-weight: lighter;
           font-size: 3rem;
           line-height: 3rem;
           margin: 1rem 0rem;
         }
 
-        h3{
+        h3 {
           color: black;
           font-weight: normal;
           margin: 1rem 0rem;
         }
       }
-      &-graph{
+
+      &-graph {
         background-color: grey;
         border: black 4px solid;
       }
     }
 
-    .links{
+    .links {
       display: grid;
       grid-template-columns: 1fr 2fr;
 
-      div{
+      div {
         grid-column-start: 2;
         // align-self: center;
         justify-self: center;
-        .button{
+
+        .button {
           color: black;
-          border: black solid 2px;          margin: 1rem;
+          border: black solid 2px;
+          margin: 1rem;
         }
       }
     }
-    
+
 
 
 
@@ -287,4 +292,41 @@ footer {
     color: black;
     margin: 1rem;
   }
+}
+
+// Photos Page
+.photo-header {
+  height: 80vh;
+  // background-color: green;
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1 {
+    grid-row-start: 1;
+    font-family: Old Standard, serif;
+    font-weight: normal;
+    font-size: 4.5rem;
+  }
+
+  .album {
+    &-description {
+      grid-row-start: 1;
+    }
+
+    &-titles {
+      grid-row-start: 2;
+      display: flex;
+    }
+  }
+}
+
+.photo-gallery {
+  height: 200vh;
+  background-color: silver;
 }

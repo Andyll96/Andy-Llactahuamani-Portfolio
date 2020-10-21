@@ -1,6 +1,6 @@
-// .container{
-//     // overflow: hidden;
-// }
+.container{
+    overflow: hidden;
+}
 
 a{
     text-decoration: none;
@@ -11,4 +11,20 @@ a{
         border: white solid 2px;
         padding: 0.5rem 1rem;        
     }
+}
+
+.px-1{
+    padding: 0rem 1rem;
+}
+.px-2{
+    padding: 0rem 2rem;
+}
+.px-3{
+    padding: 0rem 3rem;
+}
+.px-4{
+    padding: 0rem 4rem;
+}
+.px-5{
+    padding: 0rem 5rem;
 }
