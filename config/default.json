@@ -1,3 +1,3 @@
 {
-    "mongoURI": "mongodb+srv://allactah:Al%23416587@portfolio-cluster.okbvf.mongodb.net/<dbname>?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://allactah:Al%23416587@portfolio-cluster.okbvf.mongodb.net/portfolio-database?retryWrites=true&w=majority"
 }
