@@ -10,7 +10,7 @@ const ImagesSchema = mongoose.Schema({
         required: true
     },
     fileSize: {
-        type: Number,
+        type: String,
         required: true
     },
     albumName: {

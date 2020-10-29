@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 
-const Album = require('../models/photos/Image');
+const Image = require('../models/photos/Image');
+
 
 // @route   POST api/album
 // @desc    Register a Photo into an Album
@@ -21,7 +22,8 @@ router.post('/', [
     
     // res.send(req.body);
         const { fileName, fileLocation, fileSize, albumName, dateTaken, fstop, shutterSpeed, iso, focalLength, resolution, camera } = req.body;
-        
+
+
         try {
             let image = new Image({
                 fileName,
@@ -40,7 +42,7 @@ router.post('/', [
             // saves to the database
             await image.save();
 
-            res.send('Image: ', fileName, ' Saved');
+            res.send('Image: ' + fileName + ' Saved');
             
         } catch (error) {
             console.error(error.message);

@@ -13,7 +13,7 @@ app.get('/', (req, res) => res.json({ msg: 'Welcome to the andy-llactahuamani-po
 
 // Define Routes
 app.use('/api/albums', require('./routes/albums'));
-app.use('/api/album', require('./routes/images'));
+app.use('/api/images', require('./routes/images'));
 
 const PORT = process.env.PORT || 5000;
 
