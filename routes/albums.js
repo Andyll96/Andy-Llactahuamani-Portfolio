@@ -6,6 +6,7 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator');
 
 const Album = require('../models/photos/Album');
+const Image = require('../models/photos/Image');
 
 // @route   POST api/albums
 // @desc    Register Photo Album
@@ -13,7 +14,6 @@ const Album = require('../models/photos/Album');
 // req.body is the data that's sent to the route
 router.post('/', [
     check('title', 'Please include a title').not().isEmpty(),
-    check('photoCount', 'Please include number of Photos').not().isEmpty(),
     check('description', 'Please include a description').not().isEmpty()
 ], async (req, res) => {
     // res.send(req.body);
@@ -23,9 +23,14 @@ router.post('/', [
         return res.status(400).json({errors: errors.array()})
     }
         // res.send(req.body);
-        const {title, dateTaken, uploadDate, photoCount, description, images} = req.body;
+        let {title, dateTaken, uploadDate, photoCount, description, images} = req.body;
 
         try {
+            let tempImages = await Image.find({ albumName: title });
+            images = tempImages;
+
+            photoCount = images.length || 0;
+
             let album = new Album({
                 title, 
                 dateTaken,
@@ -38,7 +43,7 @@ router.post('/', [
             // saves to the database
             await album.save();
     
-            res.send('Album Saved');
+            res.send('Album: ' + title + ' Saved');
         } catch (error) {
             console.error(error.message);
             res.status(500).send('Server Error');

@@ -16,7 +16,6 @@ const AlbumsSchema = mongoose.Schema({
     },
     photoCount: {
         type: Number,
-        required: true
     },
     description: {
         type: String,
