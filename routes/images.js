@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator');
 const Image = require('../models/photos/Image');
 
 
-// @route   POST api/album
+// @route   POST api/images
 // @desc    Register a Photo into an Album
 // @access  Public
 router.post('/', [
@@ -51,21 +51,21 @@ router.post('/', [
 
 });
 
-// @route   GET api/album
+// @route   GET api/images
 // @desc    Get all photos in an album
 // @access  Public
 router.get('/', (req, res) => {
     res.send('Registered photo into Album')
 });
 
-// @route   UPDATE api/album
+// @route   UPDATE api/images
 // @desc    Update photo in an album
 // @access  Private
 router.put('/:id', (req, res) => {
     res.send('Update Photo')
 });
 
-// @route   DELETE api/album
+// @route   DELETE api/images
 // @desc    Update photo in an album
 // @access  Private
 router.delete('/:id', (req, res) => {

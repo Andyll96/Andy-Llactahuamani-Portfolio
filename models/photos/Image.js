@@ -9,6 +9,9 @@ const ImagesSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    thumbnailLocation: {
+        type: String
+    },
     fileSize: {
         type: String,
         required: true
@@ -16,29 +19,32 @@ const ImagesSchema = mongoose.Schema({
     albumName: {
         type: String
     },
-    dateTaken: {
-        type: Date
-    },
-    fstop: {
-        type: String
-    },
-    shutterSpeed: {
-        type: String
-    },
-    iso: {
-        type: Number
-    },
-    focalLength: {
-        type: Number
-    },
-    resolution: [
-        Number,
-        Number
-    ],
-    camera: {
-        type: String
+    metaData: {
+        type: Object,
+        
+        dateTaken: {
+            type: Date
+        },
+        fstop: {
+            type: String
+        },
+        shutterSpeed: {
+            type: String
+        },
+        iso: {
+            type: Number
+        },
+        focalLength: {
+            type: Number
+        },
+        resolution: [
+            Number,
+            Number
+        ],
+        camera: {
+            type: String
+        }
     }
-
 });
 
 module.exports = mongoose.model('images', ImagesSchema);

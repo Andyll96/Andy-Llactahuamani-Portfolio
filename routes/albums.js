@@ -26,6 +26,12 @@ router.post('/', [
         let {title, dateTaken, uploadDate, photoCount, description, images} = req.body;
 
         try {
+            // checks if there's an exsiting album in the database with the same name
+            let existingAlbum = await Album.findOne({ title });
+            if (existingAlbum) {
+                return res.status(400).json({ msg: 'Album already exists' });
+            }
+
             let tempImages = await Image.find({ albumName: title });
             images = tempImages;
 
@@ -51,10 +57,17 @@ router.post('/', [
 });
 
 // @route   GET api/albums
-// @desc    Get Photo Album names
+// @desc    Get Photo Album 
 // @access  Public
 router.get('/', (req, res) => {
     res.send('Retrieved Photo Albums')
+});
+
+// @route   UPDATE api/albums
+// @desc    Update Album
+// @access  Private
+router.put('/:id', async (req, res) => {
+    res.send('Update Album')
 });
 
 // @route   DELETE api/albums
