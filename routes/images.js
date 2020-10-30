@@ -59,7 +59,7 @@ router.get('/', async (req, res) => {
     try {
         const images = await Image.find({ albumName: req.body.albumName });
         // respond with list of images
-        console.log(images);
+        // console.log(images);
         res.json(images);
     } catch (error) {
         console.error(error.message);

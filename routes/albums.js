@@ -59,8 +59,16 @@ router.post('/', [
 // @route   GET api/albums
 // @desc    Get Photo Album 
 // @access  Public
-router.get('/', (req, res) => {
-    res.send('Retrieved Photo Albums')
+router.get('/', async (req, res) => {
+    // res.send('Retrieved Photo Albums')
+    try {
+        // retrives collection of all albums info
+        const albums = await Album.find();
+        res.json(albums);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
 });
 
 // @route   UPDATE api/albums
