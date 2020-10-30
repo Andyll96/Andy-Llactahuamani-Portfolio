@@ -4,6 +4,7 @@ const { check, validationResult } = require('express-validator');
 
 const Image = require('../models/photos/Image');
 
+// TODO: MUST ADD AUTHORIZATION FOR PRIVATE ROUTES
 
 // @route   POST api/images
 // @desc    Register a Photo into an Album
@@ -25,6 +26,11 @@ router.post('/', [
 
 
         try {
+            let existingImage = await Image.findOne({ fileName });
+            if (existingImage) {
+                return res.status(400).json({ msg: 'Image already exists' });
+            }
+
             let image = new Image({
                 fileName,
                 fileLocation,
@@ -40,9 +46,9 @@ router.post('/', [
             });
 
             // saves to the database
-            await image.save();
+            const newImage = await image.save();
 
-            res.send('Image: ' + fileName + ' Saved');
+            res.send('Image: ' + fileName + ' Saved\n' + newImage);
             
         } catch (error) {
             console.error(error.message);
@@ -71,14 +77,54 @@ router.get('/', async (req, res) => {
 // @desc    Update photo in an album
 // @access  Private
 router.put('/:id', (req, res) => {
-    res.send('Update Photo')
+    const { fileName, fileLocation, thumbnailLocation, fileSize, albumName, dateTaken, fstop, shutterSpeed, iso, focalLength, resolution, camera } = req.body;
+
+    const imageFields = {};
+
+    if (fileName) imageFields.fileName = fileName;
+    if (fileLocation) imageFields.fileLocation = fileLocation;
+    if (thumbnailLocation) imageFields.thumbnailLocation = thumbnailLocation;
+    if (fileSize) imageFields.fileSize = fileSize;
+    if (albumName) imageFields.albumName = albumName;
+    if (dateTaken) imageFields.dateTaken = dateTaken;
+    if (fstop) imageFields.fstop = fstop;
+    if (shutterSpeed) imageFields.shutterSpeed = shutterSpeed;
+    if (iso) imageFields.iso = iso;
+    if (focalLength) imageFields.focalLength = focalLength;
+    if (resolution) imageFields.resolution = resolution;
+    if (camera) imageFields.camera = camera;
+
+    try {
+        let image = await Image.findById(req.params.id);
+
+        if (!image) return res.status(404).json({ msg: 'Image not found' });
+
+        image = await Image.findByIdAndUpdate(req.params.id, { $set: imageFields }, { new: true });
+
+        res.json(image);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
 });
 
 // @route   DELETE api/images
 // @desc    Update photo in an album
 // @access  Private
 router.delete('/:id', (req, res) => {
-    res.send('Delete Photo')
+    // res.send('Delete Photo')
+    try {
+        let image = await Image.findById(req.params.id);
+
+        if (!image) return res.status(404).json({ msg: 'Image not found' });
+
+        await Image.findByIdAndRemove(req.params.id);
+        
+        res.json({ msg: 'Image Removed' });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
 });
 
 module.exports = router;

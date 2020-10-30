@@ -8,6 +8,8 @@ const { check, validationResult } = require('express-validator');
 const Album = require('../models/photos/Album');
 const Image = require('../models/photos/Image');
 
+// TODO: MUST ADD AUTHORIZATION FOR PRIVATE ROUTES
+
 // @route   POST api/albums
 // @desc    Register Photo Album
 // @access  Private
@@ -47,9 +49,9 @@ router.post('/', [
             });
     
             // saves to the database
-            await album.save();
+            const newAlbum = await album.save();
     
-            res.send('Album: ' + title + ' Saved');
+            res.send('Album: ' + title + ' Saved\n' + newAlbum);
         } catch (error) {
             console.error(error.message);
             res.status(500).send('Server Error');
@@ -75,14 +77,50 @@ router.get('/', async (req, res) => {
 // @desc    Update Album
 // @access  Private
 router.put('/:id', async (req, res) => {
-    res.send('Update Album')
+    // res.send('Update Album')
+    const { title, dateTaken, uploadDate, photoCount, description, images} = req.body;
+
+    const albumFields = {};
+    if (title) albumFields.title = title;
+    if (dateTaken) albumFields.dateTaken = dateTaken;
+    if (uploadDate) albumFields.uploadDate = uploadDate;
+    if (photoCount) albumFields.photoCount = photoCount;
+    if (description) albumFields.desctiption = desctiption;
+    if (images) albumFields.images = images;
+
+    try {
+        let album = await Album.findById(req.params.id);
+
+        if (!album) return res.status(404).json({ msg: 'Album not found' });
+
+        // new: true returns the object after it's been updated
+        album = await Album.findByIdAndUpdate(req.params.id, { $set: albumFields }, { new: true });
+
+        res.json(album);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
+
 });
 
 // @route   DELETE api/albums
 // @desc    Delete a Photo Album
 // @access  Private
-router.delete('/:id', (req, res) => {
-    res.send('Registered Photo Album')
+router.delete('/:id', async (req, res) => {
+    // res.send('Registered Photo Album')
+    try {
+        let album = await Album.findById(req.params.id);
+
+        if (!album) return res.status(404).json({ msg: 'Album not found' });
+
+        await Album.findByIdAndRemove(req.params.id);
+
+        res.json({ msg: 'Album Removed' });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
 });
 
 module.exports = router;
