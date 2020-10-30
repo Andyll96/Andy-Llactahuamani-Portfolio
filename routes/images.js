@@ -7,7 +7,7 @@ const Image = require('../models/photos/Image');
 
 // @route   POST api/images
 // @desc    Register a Photo into an Album
-// @access  Public
+// @access  Private
 router.post('/', [
     check('fileName', 'Filename Required').not().isEmpty(),
     check('fileLocation', 'File Location Required').not().isEmpty(),
@@ -54,8 +54,17 @@ router.post('/', [
 // @route   GET api/images
 // @desc    Get all photos in an album
 // @access  Public
-router.get('/', (req, res) => {
-    res.send('Registered photo into Album')
+router.get('/', async (req, res) => {
+    // res.send('Registered photo into Album')
+    try {
+        const images = await Image.find({ albumName: req.body.albumName });
+        // respond with list of images
+        console.log(images);
+        res.json(images);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
+    }
 });
 
 // @route   UPDATE api/images
