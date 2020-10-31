@@ -76,7 +76,7 @@ router.get('/', async (req, res) => {
 // @route   UPDATE api/images
 // @desc    Update photo in an album
 // @access  Private
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
     const { fileName, fileLocation, thumbnailLocation, fileSize, albumName, dateTaken, fstop, shutterSpeed, iso, focalLength, resolution, camera } = req.body;
 
     const imageFields = {};
@@ -111,7 +111,7 @@ router.put('/:id', (req, res) => {
 // @route   DELETE api/images
 // @desc    Update photo in an album
 // @access  Private
-router.delete('/:id', (req, res) => {
+router.delete('/:id', async (req, res) => {
     // res.send('Delete Photo')
     try {
         let image = await Image.findById(req.params.id);
@@ -120,7 +120,7 @@ router.delete('/:id', (req, res) => {
 
         await Image.findByIdAndRemove(req.params.id);
         
-        res.json({ msg: 'Image Removed' });
+        res.json({ msg: 'Image ' + image.fileName + ' Removed' });
     } catch (error) {
         console.error(error.message);
         res.status(500).send('Server Error');
