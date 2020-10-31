@@ -315,17 +315,19 @@ footer {
   }
 
   .album {
-    &-titles{
+    &-nav{
       grid-row-start: 2;
       display: flex;
       // align-items: center;
       justify-content: center;
       grid-gap: 5rem;
+      overflow: scroll;
       h2{
         color: black;
         font-family: Poppins, sans-serif;
         font-style: normal;
         font-weight: normal;
+        white-space: nowrap;
       }
     }
     &-description {

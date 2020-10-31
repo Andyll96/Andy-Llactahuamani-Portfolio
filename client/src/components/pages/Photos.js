@@ -14,15 +14,47 @@ const Photos = () => {
                 </div>
 
                 {/* TODO: RENAME TO PHOTO-NAV */}
-                <div className="album-titles">
-                    <a href="" className='current'><h2 className='button'>City</h2></a>
-                    <a href=""><h2 className='button'>Night</h2></a>
-                    <a href=""><h2 className='button'>Neon</h2></a>
-                    <a href=""><h2 className='button'>Water</h2></a>
+                <div className="album-nav">
+                    <a href="" className='button'>
+                        <h2>City</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Neon</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Night</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Water</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>High Park</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Harbour</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Rooftop</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Ryerson</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Forest</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Work</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Downtown</h2>
+                    </a>
+                    <a href="" className='button'>
+                        <h2>Cosplay</h2>
+                    </a>
+
                 </div>
             </div>
             <div className="photo-gallery">
-
             </div>
         </div>
     )
