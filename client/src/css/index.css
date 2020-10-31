@@ -14,6 +14,10 @@ a .button {
   padding: 0.5rem 1rem;
 }
 
+.below-nav {
+  margin-top: 110px;
+}
+
 .px-1 {
   padding: 0rem 1rem;
 }
@@ -389,7 +393,7 @@ footer a {
 }
 
 .photo-header {
-  height: 80vh;
+  height: 60vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 5fr 1fr;
@@ -415,11 +419,7 @@ footer a {
   font-family: Old Standard, serif;
   font-weight: normal;
   font-size: 4.5rem;
-}
-
-.photo-header .album-description {
-  -ms-grid-row: 1;
-      grid-row-start: 1;
+  padding-bottom: 2rem;
 }
 
 .photo-header .album-titles {
@@ -428,6 +428,23 @@ footer a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 5rem;
+}
+
+.photo-header .album-titles h2 {
+  color: black;
+  font-family: Poppins, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.photo-header .album-description {
+  -ms-grid-row: 1;
+      grid-row-start: 1;
+  justify-items: center;
 }
 
 .photo-gallery {
