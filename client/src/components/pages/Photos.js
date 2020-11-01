@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Photos = () => {
     return (
@@ -55,6 +55,7 @@ const Photos = () => {
                 </div>
             </div>
             <div className="photo-gallery">
+                {/* <img src={'/images/photos/DSC_0076.png'}/> */}
             </div>
         </div>
     )
