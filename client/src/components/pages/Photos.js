@@ -1,5 +1,5 @@
 import React from 'react';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import Masonry from 'react-masonry-css';
 
 const Photos = () => {
     return (
@@ -57,29 +57,31 @@ const Photos = () => {
             </div>
 
             {/* TODO: REPLACE MASONRY WITH PROPER MASONRY */}
-                <Masonry className='photo-gallery'>
-                    <div>
-                        <img src={'/images/photos/DSC_0076.png'} />
-                    </div>
-                    <div>
-                        <img src={'/images/photos/DSC_0110.png'} />
-                    </div>
-                    <div>
-                        <img src={'/images/photos/DSC_0126.png'} />
-                    </div>
-                    <div>
-                        <img src={'/images/photos/DSC_0135.png'} />
-                    </div>
-                    <div>
-                        <img src={'/images/photos/DSC_0139.png'} />
-                    </div>
-                    <div>
-                        <img src={'/images/photos/DSC_0169.png'} />
-                    </div>
-                    <div>
-                        <img src={'/images/photos/IMG_6502.JPG'} />
-                    </div>
-                </Masonry>
+            <Masonry breakpointCols={3}
+                className="my-masonry-grid photo-gallery"
+                columnClassName="my-masonry-grid_column">
+                <div>
+                    <img src={'/images/photos/DSC_0076.png'} />
+                </div>
+                <div>
+                    <img src={'/images/photos/DSC_0110.png'} />
+                </div>
+                <div>
+                    <img src={'/images/photos/DSC_0126.png'} />
+                </div>
+                <div>
+                    <img src={'/images/photos/DSC_0135.png'} />
+                </div>
+                <div>
+                    <img src={'/images/photos/DSC_0139.png'} />
+                </div>
+                <div>
+                    <img src={'/images/photos/DSC_0169.png'} />
+                </div>
+                <div>
+                    <img src={'/images/photos/IMG_6502.JPG'} />
+                </div>
+            </Masonry>
         </div>
     )
 }
