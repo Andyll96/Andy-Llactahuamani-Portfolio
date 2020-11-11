@@ -1,6 +1,13 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
 
+const masonryOptions = {
+    transitionDuration: 0
+};
+
+const imagesLoadedOptions = { background: '.my-bg-image-el' }
+
+
 const Photos = () => {
     return (
         <div className='below-nav'>
@@ -14,7 +21,6 @@ const Photos = () => {
                 </p>
                 </div>
 
-                {/* TODO: RENAME TO PHOTO-NAV */}
                 <div className="album-nav">
                     <a href="" className='button'>
                         <h2>City</h2>
@@ -56,12 +62,26 @@ const Photos = () => {
                 </div>
             </div>
 
-            {/* TODO: REPLACE MASONRY WITH PROPER MASONRY */}
-            <Masonry breakpointCols={3}
-                className="my-masonry-grid photo-gallery"
-                columnClassName="my-masonry-grid_column">
-                <div>
-                    <img src={'/images/photos/DSC_0076.png'} />
+            {/* TODO: INVESTIGATE MASONRY RESIZING */}
+            <Masonry breakpointCols={3} className="my-masonry-grid photo-gallery" columnClassName="my-masonry-grid_column">
+                <div className='grid-item' data-size='3192x3990'>
+                    {/* a tag is for thumbnail */}
+                    <a href="/images/photos/DSC_0076.png" className='img-wrap'>
+                        <img src={'/images/photos/DSC_0076.png'} />
+                        <div className="description description-grid">
+                            <h3>Test Title</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, culpa. Aliquid in similique animi ipsam incidunt? Accusantium harum tempora quam accusamus, aspernatur ex voluptatum perferendis deserunt cum iure ipsam quis.</p>
+                            <div className="details">
+                                <ul>
+                                    <li><i className="icon icon-camera"></i><span>Nikon D5300</span></li>
+                                    <li><i className="icon icon-focal_length"></i><span>22.5mm</span></li>
+                                    <li><i className="icon icon-aperture"></i><span>&fnof;/5.6</span></li>
+                                    <li><i className="icon icon-exposure_time"></i><span>1/1000</span></li>
+                                    <li><i className="icon icon-iso"></i><span>80</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 <div>
                     <img src={'/images/photos/DSC_0110.png'} />
