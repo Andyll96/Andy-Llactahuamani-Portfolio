@@ -38,6 +38,26 @@ a .button {
   padding: 0rem 5rem;
 }
 
+.mx-1 {
+  margin: 0rem 1rem;
+}
+
+.mx-2 {
+  margin: 0rem 2rem;
+}
+
+.mx-3 {
+  margin: 0rem 3rem;
+}
+
+.mx-4 {
+  margin: 0rem 4rem;
+}
+
+.mx-5 {
+  margin: 0rem 5rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -454,30 +474,26 @@ footer a {
 }
 
 img {
-  width: 300px;
+  width: 20vw;
 }
 
 .my-masonry-grid {
   display: -webkit-box;
-  /* Not needed if autoprefixing */
   display: -ms-flexbox;
-  /* Not needed if autoprefixing */
   display: flex;
-  margin-left: -30px;
-  /* gutter size offset */
-  width: auto;
+  justify-self: center;
+  grid-gap: 1rem;
+  padding-left: 5rem;
+  padding-right: 10rem;
 }
 
 .my-masonry-grid_column {
-  padding-left: 30px;
-  /* gutter size */
   background-clip: padding-box;
 }
 
 /* Style your items */
 .my-masonry-grid_column > div {
   /* change div to reference your elements you put in <Masonry> */
-  background: grey;
-  margin-bottom: 30px;
+  margin-bottom: 1rem;
 }
 /*# sourceMappingURL=index.css.map */
