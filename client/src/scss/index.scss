@@ -338,14 +338,16 @@ footer {
 }
 
 .photo-gallery {
-  height: 200vh;
-  background-color: silver;
+  // height: 200vh;
+  // background-color: silver;
 }
 
+.grid-item{
+  width: 300px;
+}
 
 img{
-  width: 450px;
-
+  width: 300px;
 }
 
 .my-masonry-grid {

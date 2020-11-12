@@ -1,12 +1,12 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
 
-const masonryOptions = {
-    transitionDuration: 0
-};
-
-const imagesLoadedOptions = { background: '.my-bg-image-el' }
-
+const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1
+  };
 
 const Photos = () => {
     return (
@@ -63,9 +63,13 @@ const Photos = () => {
             </div>
 
             {/* TODO: INVESTIGATE MASONRY RESIZING */}
-            <Masonry breakpointCols={3} className="my-masonry-grid photo-gallery" columnClassName="my-masonry-grid_column">
-                <div className='grid-item' data-size='3192x3990'>
-                    {/* a tag is for thumbnail */}
+            <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column"
+            >
+                {/* <div className='grid-item' data-size='3192x3990'>
+                    a tag is for thumbnail
                     <a href="/images/photos/DSC_0076.png" className='img-wrap'>
                         <img src={'/images/photos/DSC_0076.png'} />
                         <div className="description description-grid">
@@ -82,24 +86,153 @@ const Photos = () => {
                             </div>
                         </div>
                     </a>
+                </div> */}
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-1.jpg" alt="" srcset="" />
                 </div>
-                <div>
-                    <img src={'/images/photos/DSC_0110.png'} />
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-2.jpg" alt="" srcset="" />
                 </div>
-                <div>
-                    <img src={'/images/photos/DSC_0126.png'} />
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-3.jpg" alt="" srcset="" />
                 </div>
-                <div>
-                    <img src={'/images/photos/DSC_0135.png'} />
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-4.jpg" alt="" srcset="" />
                 </div>
-                <div>
-                    <img src={'/images/photos/DSC_0139.png'} />
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-5.jpg" alt="" srcset="" />
                 </div>
-                <div>
-                    <img src={'/images/photos/DSC_0169.png'} />
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-6.jpg" alt="" srcset="" />
                 </div>
-                <div>
-                    <img src={'/images/photos/IMG_6502.JPG'} />
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-7.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-8.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-9.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-10.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-11.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-12.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-13.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-14.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-15.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-16.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-17.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-18.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-19.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-20.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-21.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-22.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-23.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-24.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-25.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-26.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-27.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-28.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-29.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-30.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-31.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-32.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-33.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-34.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-35.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-36.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-37.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-38.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-39.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-40.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-41.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-42.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-43.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-44.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-45.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-46.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-47.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-48.jpg" alt="" srcset="" />
+                </div>
+                <div className="grid-item">
+                    <img src="/images/photos/thumbs/testShootThumb-49.jpg" alt="" srcset="" />
                 </div>
             </Masonry>
         </div>
