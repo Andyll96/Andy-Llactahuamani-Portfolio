@@ -51,7 +51,7 @@ const Home = () => {
         {/* <h2>Photos</h2> */}
         <div id='featured-photo-gallery-container'>
           <div className='featured-photo-gallery'>
-            <FeaturedPhotoGallery/>
+            <FeaturedPhotoGallery />
           </div>
           <div className='featured-photo-gallery-nav'>
             <i class="fas fa-minus fa-2x pg-1"></i>
@@ -77,7 +77,7 @@ const Home = () => {
 
       {/* Code Section */}
       <section className='section-code'>
-        <FeaturedCode/>
+        <FeaturedCode />
       </section>
     </div>
   );

@@ -1,14 +1,35 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Masonry from 'react-masonry-css';
+import axios from 'axios'
+
 
 const breakpointColumnsObj = {
     default: 4,
     1100: 3,
     700: 2,
     500: 1
-  };
+};
 
 const Photos = () => {
+
+    const [albums, setAlbums] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        getAlbums();
+        // eslint-disable-next-line
+    }, []);
+
+    const getAlbums = async () => {
+        setLoading(true);
+        console.log('First');
+        const res = await axios.get('/albums');
+        console.log('Second');
+        setAlbums(res.data);
+        setLoading(false);
+    }
+
+
     return (
         <div className='below-nav'>
             <div className="container photo-header px-5">
@@ -22,71 +43,18 @@ const Photos = () => {
                 </div>
 
                 <div className="album-nav">
-                    <a href="" className='button'>
-                        <h2>City</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Neon</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Night</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Water</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>High Park</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Harbour</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Rooftop</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Ryerson</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Forest</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Work</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Downtown</h2>
-                    </a>
-                    <a href="" className='button'>
-                        <h2>Cosplay</h2>
-                    </a>
-
+                    {/* Album Names */}
+                    {loading ? (<h4>Loading...</h4>):!loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <h3>{album.title}</h3>)}
+                    {}
                 </div>
             </div>
 
             {/* TODO: INVESTIGATE MASONRY RESIZING */}
             <Masonry
-            breakpointCols={breakpointColumnsObj}
-            className="my-masonry-grid"
-            columnClassName="my-masonry-grid_column"
+                breakpointCols={breakpointColumnsObj}
+                className="my-masonry-grid"
+                columnClassName="my-masonry-grid_column"
             >
-                {/* <div className='grid-item' data-size='3192x3990'>
-                    a tag is for thumbnail
-                    <a href="/images/photos/DSC_0076.png" className='img-wrap'>
-                        <img src={'/images/photos/DSC_0076.png'} />
-                        <div className="description description-grid">
-                            <h3>Test Title</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, culpa. Aliquid in similique animi ipsam incidunt? Accusantium harum tempora quam accusamus, aspernatur ex voluptatum perferendis deserunt cum iure ipsam quis.</p>
-                            <div className="details">
-                                <ul>
-                                    <li><i className="icon icon-camera"></i><span>Nikon D5300</span></li>
-                                    <li><i className="icon icon-focal_length"></i><span>22.5mm</span></li>
-                                    <li><i className="icon icon-aperture"></i><span>&fnof;/5.6</span></li>
-                                    <li><i className="icon icon-exposure_time"></i><span>1/1000</span></li>
-                                    <li><i className="icon icon-iso"></i><span>80</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </a>
-                </div> */}
                 <div className="grid-item">
                     <img src="/images/photos/thumbs/testShootThumb-1.jpg" alt="" srcset="" />
                 </div>
@@ -236,7 +204,7 @@ const Photos = () => {
                 </div>
             </Masonry>
         </div>
-    )
-}
+    );
+};
 
 export default Photos

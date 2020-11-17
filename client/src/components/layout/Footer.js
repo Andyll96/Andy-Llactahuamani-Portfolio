@@ -3,6 +3,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <footer>
+            
             <h3>Photographer • Developer • Filmmaker</h3>
             <div className="socials">
                 <a href="https://www.github.com/andyll96" target="_blank" rel="noopener noreferrer">
