@@ -69,9 +69,14 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 5px;
+  height: 5px;
   background: transparent;
-  /* make scrollbar transparent */
+}
+
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 5px;
 }
 
 .navbar {
@@ -448,19 +453,33 @@ footer a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   grid-gap: 5rem;
   overflow: scroll;
+  margin-right: 2.5rem;
 }
 
-.photo-header .album-nav h2 {
+.photo-header .album-nav button {
+  border: none;
+  background: none;
+}
+
+.photo-header .album-nav button h2 {
   color: black;
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: normal;
   white-space: nowrap;
+}
+
+.photo-header .album-nav button h2:hover {
+  color: #202020;
+  cursor: pointer;
 }
 
 .photo-header .album-description {
@@ -491,7 +510,6 @@ img {
   background-clip: padding-box;
 }
 
-/* Style your items */
 .my-masonry-grid_column > div {
   /* change div to reference your elements you put in <Masonry> */
   margin-bottom: 1rem;

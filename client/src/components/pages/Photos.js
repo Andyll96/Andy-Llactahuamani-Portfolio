@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Masonry from 'react-masonry-css';
-import axios from 'axios'
+import axios from 'axios';
 
 
 const breakpointColumnsObj = {
@@ -22,13 +22,19 @@ const Photos = () => {
 
     const getAlbums = async () => {
         setLoading(true);
-        console.log('First');
+        // console.log('First');
         const res = await axios.get('/albums');
-        console.log('Second');
+        // console.log('Second');
         setAlbums(res.data);
         setLoading(false);
     }
 
+    let loadingCenter;
+    if (loading) {
+        loadingCenter = {
+            justifySelf: 'center'
+        }
+    }
 
     return (
         <div className='below-nav'>
@@ -42,10 +48,9 @@ const Photos = () => {
                 </p>
                 </div>
 
-                <div className="album-nav">
+                <div className="album-nav" style={loadingCenter}>
                     {/* Album Names */}
-                    {loading ? (<h4>Loading...</h4>):!loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <h3>{album.title}</h3>)}
-                    {}
+                    {loading ? (<h2>Loading...</h2>):!loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <button><h2>{album.title}</h2></button>)}
                 </div>
             </div>
 

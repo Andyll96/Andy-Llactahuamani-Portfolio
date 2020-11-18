@@ -10,6 +10,7 @@
     "masonry-layout": "^4.2.2",
     "materialize-css": "^1.0.0",
     "react": "^16.13.1",
+    "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.13.1",
     "react-masonry-css": "^1.0.14",
     "react-router-dom": "^5.2.0",
@@ -36,5 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy":"http://localhost:5000/api"
+  "proxy": "http://localhost:5000/api"
 }
