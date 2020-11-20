@@ -14,17 +14,17 @@ const Home = () => {
         <div className='container-socials'>
           <div className="socials">
             <a href="https://www.github.com/andyll96" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github fa-2x"></i>
+              <i className="fab fa-github fa-2x"></i>
             </a>
             <a href="https://www.linkedin.com/in/andy-llactahuamani-6386b5164/" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-linkedin-in fa-2x"></i>
+              <i className="fab fa-linkedin-in fa-2x"></i>
             </a>
             <a href="https://www.instagram.com/andysll" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-instagram fa-2x" />
+              <i className="fab fa-instagram fa-2x" />
             </a>
           </div>
           <div className='i-container'>
-            <i class="fas fa-grip-lines fa-2x"></i>
+            <i className="fas fa-grip-lines fa-2x"></i>
           </div>
         </div>
       </header>
@@ -54,9 +54,9 @@ const Home = () => {
             <FeaturedPhotoGallery />
           </div>
           <div className='featured-photo-gallery-nav'>
-            <i class="fas fa-minus fa-2x pg-1"></i>
-            <i class="fas fa-minus fa-2x pg-2"></i>
-            <i class="fas fa-minus fa-2x pg-3"></i>
+            <i className="fas fa-minus fa-2x pg-1"></i>
+            <i className="fas fa-minus fa-2x pg-2"></i>
+            <i className="fas fa-minus fa-2x pg-3"></i>
           </div>
         </div>
 

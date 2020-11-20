@@ -58,6 +58,29 @@ a .button {
   margin: 0rem 5rem;
 }
 
+.fade-in {
+  -webkit-animation: fadeIn ease 3s;
+          animation: fadeIn ease 3s;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -71,6 +94,11 @@ body {
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #d8d8d8;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -462,6 +490,7 @@ footer a {
   overflow: scroll;
   margin-right: 2.5rem;
   margin-bottom: 0.75rem;
+  overflow-y: hidden;
 }
 
 .photo-header .album-nav button {

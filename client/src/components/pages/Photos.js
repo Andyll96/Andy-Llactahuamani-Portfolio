@@ -22,11 +22,14 @@ const Photos = () => {
 
     const getAlbums = async () => {
         setLoading(true);
-        // console.log('First');
-        const res = await axios.get('/albums');
-        // console.log('Second');
-        setAlbums(res.data);
-        setLoading(false);
+        try {
+            const res = await axios.get('/albums');
+            console.log('Albums Retrieved');
+            setAlbums(res.data);
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     let loadingCenter;
@@ -50,7 +53,8 @@ const Photos = () => {
 
                 <div className="album-nav" style={loadingCenter}>
                     {/* Album Names */}
-                    {loading ? (<h2>Loading...</h2>):!loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <button key={album._id}>{album.title}</button>)}
+                    {/* TODO: WHY IS IT WHEN THE BUTTONS LOAD, THEY'RE CLICKED??? */}
+                    {loading ? (<h2 style={{ overflow: "hidden"}}>Loading...</h2>):!loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <button className='fade-in' onClick={console.log('Testing')} key={album._id}>{album.title}</button>)}
                 </div>
             </div>
 

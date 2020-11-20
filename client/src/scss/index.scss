@@ -19,6 +19,11 @@ body {
   height: 5px;
 }
 
+::-webkit-scrollbar-track{
+  background: rgb(216, 216, 216);
+  border-radius: 5px;
+}
+
 ::-webkit-scrollbar-thumb{
   background: grey;
   border-radius: 5px;
@@ -335,6 +340,7 @@ footer {
       margin-right: 2.5rem;
       margin-bottom: 0.75rem;
       // border: black 1px dashed;
+      overflow-y: hidden;
       button{
         border: none;
         background: none;
