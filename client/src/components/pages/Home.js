@@ -40,7 +40,7 @@ const Home = () => {
           <h3>~ The Prestige</h3>
         </div>
         <div>
-          <iframe width="480" height="270" src="https://www.youtube.com/embed/X_jcE4awpY8">
+          <iframe title='Trailer' width="480" height="270" src="https://www.youtube.com/embed/X_jcE4awpY8">
           </iframe>
         </div>
 
@@ -65,7 +65,7 @@ const Home = () => {
 
       {/* Film Section */}
       <section className='section-film'>
-        <iframe width="760" height="450" src="https://www.youtube.com/embed/X_jcE4awpY8">
+        <iframe title='currentFilm' width="760" height="450" src="https://www.youtube.com/embed/X_jcE4awpY8">
         </iframe>
 
         <div>

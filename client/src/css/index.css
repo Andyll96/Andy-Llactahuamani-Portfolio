@@ -71,7 +71,6 @@ body {
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
-  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -462,23 +461,22 @@ footer a {
   grid-gap: 5rem;
   overflow: scroll;
   margin-right: 2.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .photo-header .album-nav button {
   border: none;
   background: none;
-}
-
-.photo-header .album-nav button h2 {
   color: black;
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-weight: normal;
   white-space: nowrap;
+  font-size: 1.25rem;
 }
 
-.photo-header .album-nav button h2:hover {
-  color: #202020;
+.photo-header .album-nav button:hover {
+  color: #646464;
   cursor: pointer;
 }
 
@@ -502,6 +500,7 @@ img {
   display: flex;
   justify-self: center;
   grid-gap: 1rem;
+  margin-top: 0.5rem;
   padding-left: 5rem;
   padding-right: 10rem;
 }

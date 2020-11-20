@@ -7,13 +7,13 @@ const Footer = () => {
             <h3>Photographer • Developer • Filmmaker</h3>
             <div className="socials">
                 <a href="https://www.github.com/andyll96" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-github fa-2x"></i>
+                    <i className="fab fa-github fa-2x"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/andy-llactahuamani-6386b5164/" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-linkedin-in fa-2x"></i>
+                    <i className="fab fa-linkedin-in fa-2x"></i>
                 </a>
                 <a href="https://www.instagram.com/andysll" target="_blank" rel="noopener noreferrer">
-                    <i class="fab fa-instagram fa-2x" />
+                    <i className="fab fa-instagram fa-2x" />
                 </a>
             </div>
         </footer>
