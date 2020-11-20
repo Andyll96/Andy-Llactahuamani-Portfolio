@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
 import axios from 'axios';
 
@@ -42,7 +43,7 @@ const Photos = () => {
     return (
         <div className='below-nav'>
             <div className="container photo-header px-5">
-                <div className='container'>
+                <div className='container fade-in'>
                     <h1>Photography</h1>
                     <p className='album-description px-3'>I often find it difficult to maintain a certain level of creativity in my life. I find that the more time I spend away from being expressive, whether it be neglect in favor of certain responsibilities or lack of motivation, the harder it becomes to get in the mindset to be original and imaginative. It's the inertia of life that wants us to stay comfortable and static. But photography is inspiring to me, it's technicality and composition. It's not comfortable, it's exciting and fun. It's not static, it's challenging.
                     <br />
@@ -54,7 +55,7 @@ const Photos = () => {
                 <div className="album-nav" style={loadingCenter}>
                     {/* Album Names */}
                     {/* TODO: WHY IS IT WHEN THE BUTTONS LOAD, THEY'RE CLICKED??? */}
-                    {loading ? (<h2 style={{ overflow: "hidden"}}>Loading...</h2>):!loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <button className='fade-in' onClick={console.log('Testing')} key={album._id}>{album.title}</button>)}
+                    {loading ? (<Spinner/>):!loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <button className='fade-in' onClick={console.log('Testing')} key={album._id}>{album.title}</button>)}
                 </div>
             </div>
 
