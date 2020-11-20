@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
 import axios from 'axios';
+import AlbumItem from '../layout/AlbumItem';
 
 
 const breakpointColumnsObj = {
@@ -26,7 +27,9 @@ const Photos = () => {
         try {
             const res = await axios.get('/albums');
             console.log('Albums Retrieved');
+            // console.log(typeof res.data);
             setAlbums(res.data);
+            // console.log(typeof albums);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -36,7 +39,8 @@ const Photos = () => {
     let loadingCenter;
     if (loading) {
         loadingCenter = {
-            justifySelf: 'center'
+            justifySelf: 'center',
+            height: 'fit-content'
         }
     }
 
@@ -51,11 +55,10 @@ const Photos = () => {
                     This is a collection of my work. I hope you enjoy it as much as I did creating it.
                 </p>
                 </div>
-
                 <div className="album-nav" style={loadingCenter}>
                     {/* Album Names */}
                     {/* TODO: WHY IS IT WHEN THE BUTTONS LOAD, THEY'RE CLICKED??? */}
-                    {loading ? (<Spinner/>):!loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <button className='fade-in' onClick={console.log('Testing')} key={album._id}>{album.title}</button>)}
+                    {loading ? (<Spinner style={{ height: "fit-content" }} />) : !loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={ album } key={album._id}/>)}
                 </div>
             </div>
 

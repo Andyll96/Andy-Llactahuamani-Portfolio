@@ -1,63 +1,77 @@
-.container{
+.container {
     overflow: hidden;
 }
 
-a{
+a {
     text-decoration: none;
-    .button{
+
+    .button {
         text-transform: uppercase;
         font-size: 1.5rem;
         color: white;
         border: white solid 2px;
-        padding: 0.5rem 1rem;        
+        padding: 0.5rem 1rem;
     }
 }
 
-.below-nav{
+.below-nav {
     margin-top: 110px;
 }
 
-.px-1{
+.px-1 {
     padding: 0rem 1rem;
 }
-.px-2{
+
+.px-2 {
     padding: 0rem 2rem;
 }
-.px-3{
+
+.px-3 {
     padding: 0rem 3rem;
 }
-.px-4{
+
+.px-4 {
     padding: 0rem 4rem;
 }
-.px-5{
+
+.px-5 {
     padding: 0rem 5rem;
 }
 
-.mx-1{
+.mx-1 {
     margin: 0rem 1rem;
 }
-.mx-2{
+
+.mx-2 {
     margin: 0rem 2rem;
 }
-.mx-3{
+
+.mx-3 {
     margin: 0rem 3rem;
 }
-.mx-4{
+
+.mx-4 {
     margin: 0rem 4rem;
 }
-.mx-5{
+
+.mx-5 {
     margin: 0rem 5rem;
 }
 
-.fade-in{
+.fade-in {
     animation: fadeIn ease 3s;
 }
 
-@keyframes fadeIn{
+@keyframes fadeIn {
     0% {
-        opacity:0;
+        opacity: 0;
     }
+
     100% {
-        opacity:1;
+        opacity: 1;
     }
+}
+
+.fade-out {
+    animation: fadeOut ease 3s;
 }

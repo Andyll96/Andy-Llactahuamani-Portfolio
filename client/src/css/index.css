@@ -81,6 +81,11 @@ a .button {
   }
 }
 
+.fade-out {
+  -webkit-animation: fadeOut ease 3s;
+          animation: fadeOut ease 3s;
+}
+
 * {
   margin: 0;
   padding: 0;
