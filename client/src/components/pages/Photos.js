@@ -17,6 +17,8 @@ const Photos = () => {
     const [albums, setAlbums] = useState([]);
     const [loading, setLoading] = useState(false);
 
+    // let imageArray = [];
+
     useEffect(() => {
         getAlbums();
         // eslint-disable-next-line
