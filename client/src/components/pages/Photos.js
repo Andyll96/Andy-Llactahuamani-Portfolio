@@ -14,34 +14,12 @@ const breakpointColumnsObj = {
     500: 1
 };
 
-const Photos = ({photos: {albums, loading}, getAlbums}) => {
-
-    // const [albums, setAlbums] = useState([]);
-    // const [loading, setLoading] = useState(false);
-
-    // const [currentAlbum, setCurrentAlbum] = useState();
-    // const [currentImage, setCurrentImage] = useState();
-
-    // let imageArray = [];
+const Photos = ({ photos: { albums, loading, currentAlbum }, getAlbums }) => {
 
     useEffect(() => {
         getAlbums();
         // eslint-disable-next-line
     }, []);
-
-    // const getAlbums = async () => {
-    //     setLoading(true);
-    //     try {
-    //         const res = await axios.get('/albums');
-    //         console.log('Albums Retrieved');
-    //         // console.log(typeof res.data);
-    //         setAlbums(res.data);
-    //         // console.log(typeof albums);
-    //         setLoading(false);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
 
     let loadingCenter;
     if (loading) {
@@ -51,21 +29,20 @@ const Photos = ({photos: {albums, loading}, getAlbums}) => {
         }
     }
 
+    const defaultDescription = 'I often find it difficult to maintain a certain level of creativity in my life. I find that the more time I spend away from being expressive, whether it be neglect in favor of certain responsibilities or lack of motivation, the harder it becomes to get in the mindset to be original and imaginative. It\'s the inertia of life that wants us to stay comfortable and static. But photography is inspiring to me, it\'s technicality and composition. It\'s not comfortable, it\'s exciting and fun. It\'s not static, it\'s challenging.\n\nThis is a collection of my work. I hope you enjoy it as much as I did creating it.'
+
     return (
         <div className='below-nav'>
             <div className="container photo-header px-5">
                 <div className='container fade-in'>
                     <h1>Photography</h1>
-                    <p className='album-description px-3'>I often find it difficult to maintain a certain level of creativity in my life. I find that the more time I spend away from being expressive, whether it be neglect in favor of certain responsibilities or lack of motivation, the harder it becomes to get in the mindset to be original and imaginative. It's the inertia of life that wants us to stay comfortable and static. But photography is inspiring to me, it's technicality and composition. It's not comfortable, it's exciting and fun. It's not static, it's challenging.
-                    <br />
-                    <br />
-                    This is a collection of my work. I hope you enjoy it as much as I did creating it.
-                </p>
+                    <p className='album-description px-3'>
+                        {currentAlbum === null ? defaultDescription : currentAlbum.description}
+                    </p>
                 </div>
                 <div className="album-nav" style={loadingCenter}>
                     {/* Album Names */}
-                    {/* TODO: WHY IS IT WHEN THE BUTTONS LOAD, THEY'RE CLICKED??? */}
-                    {loading || albums === null ? (<Spinner style={{ height: "fit-content" }} />) : !loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={ album } key={album._id}/>)}
+                    {loading || albums === null ? (<Spinner style={loadingCenter} />) : !loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={album} key={album._id} />)}
                 </div>
             </div>
 
@@ -233,4 +210,4 @@ const mapStateToProps = state => ({
     photos: state.photos
 });
 
-export default connect(mapStateToProps, {getAlbums})(Photos);
+export default connect(mapStateToProps, { getAlbums })(Photos);
