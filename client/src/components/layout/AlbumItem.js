@@ -1,9 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux';
+import {setCurrentAlbum} from '../../actions/photosActions'
 
-const AlbumItem = ({album}) => {
+// AlbumItem will contain all of the images in an array of ImageItem components
+const AlbumItem = ({album, photos: {currentALbum}, setCurrentAlbum}) => {
     const buttonClick = () => {
         console.log(album.title + ' Clicked');
+        setCurrentAlbum(album);
     }
 
     console.log(album);
@@ -19,4 +23,8 @@ AlbumItem.propTypes = {
     album: PropTypes.object.isRequired,
 }
 
-export default AlbumItem
+const mapStateToProps = state => ({
+    photos: state.photos
+});
+
+export default connect(mapStateToProps, {setCurrentAlbum}) (AlbumItem)

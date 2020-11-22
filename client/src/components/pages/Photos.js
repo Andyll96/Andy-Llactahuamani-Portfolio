@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import AlbumItem from '../layout/AlbumItem';
+import PropTypes from 'prop-types'
+import { getAlbums } from '../../actions/photosActions';
 
 
 const breakpointColumnsObj = {
@@ -12,10 +14,13 @@ const breakpointColumnsObj = {
     500: 1
 };
 
-const Photos = () => {
+const Photos = ({photos: {albums, loading}, getAlbums}) => {
 
-    const [albums, setAlbums] = useState([]);
-    const [loading, setLoading] = useState(false);
+    // const [albums, setAlbums] = useState([]);
+    // const [loading, setLoading] = useState(false);
+
+    // const [currentAlbum, setCurrentAlbum] = useState();
+    // const [currentImage, setCurrentImage] = useState();
 
     // let imageArray = [];
 
@@ -24,19 +29,19 @@ const Photos = () => {
         // eslint-disable-next-line
     }, []);
 
-    const getAlbums = async () => {
-        setLoading(true);
-        try {
-            const res = await axios.get('/albums');
-            console.log('Albums Retrieved');
-            // console.log(typeof res.data);
-            setAlbums(res.data);
-            // console.log(typeof albums);
-            setLoading(false);
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    // const getAlbums = async () => {
+    //     setLoading(true);
+    //     try {
+    //         const res = await axios.get('/albums');
+    //         console.log('Albums Retrieved');
+    //         // console.log(typeof res.data);
+    //         setAlbums(res.data);
+    //         // console.log(typeof albums);
+    //         setLoading(false);
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     let loadingCenter;
     if (loading) {
@@ -60,7 +65,7 @@ const Photos = () => {
                 <div className="album-nav" style={loadingCenter}>
                     {/* Album Names */}
                     {/* TODO: WHY IS IT WHEN THE BUTTONS LOAD, THEY'RE CLICKED??? */}
-                    {loading ? (<Spinner style={{ height: "fit-content" }} />) : !loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={ album } key={album._id}/>)}
+                    {loading || albums === null ? (<Spinner style={{ height: "fit-content" }} />) : !loading && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={ album } key={album._id}/>)}
                 </div>
             </div>
 
@@ -218,4 +223,14 @@ const Photos = () => {
     );
 };
 
-export default Photos
+// TODO: FIX ISSUE WITH PROP TYPES, IT THROWS AN ERROR BECAUSE WHEN IT'S INITIALLY BROUGHT INTO THE PROP, IT SEES THAT ALBUMS IS STILL NULL. BUT IS THEN FILLED WITH THE ALBUMS DATA FROM THE SERVER
+// Photos.propTypes = {
+//     albums: PropTypes.object.isRequired,
+// }
+
+// imports from our state and brings it into the component as a prop
+const mapStateToProps = state => ({
+    photos: state.photos
+});
+
+export default connect(mapStateToProps, {getAlbums})(Photos);
