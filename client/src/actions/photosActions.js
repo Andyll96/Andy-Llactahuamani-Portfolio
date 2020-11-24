@@ -35,7 +35,7 @@ export const setImages = album => async dispatch => {
         console.log('All Images Retrieved');
         console.log(res.data);
 
-        if (album === null) {
+        if (album === null || album.photoCount === 0) {
             dispatch({
                 type: SET_IMAGES,
                 payload: null
