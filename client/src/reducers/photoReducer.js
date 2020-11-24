@@ -4,6 +4,7 @@ import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING, SET_CURRENT_ALBUM, SET_IMAGES, I
 const initialState = {
     albums: null,
     images: null,
+    filteredImages: null,
     currentAlbum: null,
     currentImage: null,
     loading: false,

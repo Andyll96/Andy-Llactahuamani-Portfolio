@@ -50,7 +50,7 @@ const Photos = ({ photos: { albums, images, loading, currentAlbum }, getAlbums }
 
             {/* TODO: INVESTIGATE MASONRY RESIZING */}
             <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
-                {/* {loading || currentAlbum === null ? (<Spinner style={loadingCenter} />) : !loading && images.length === 0 ? (<p> No Images to show</p>) : images.map(image => <ImageItem image={image} key={image._id} />)} */}
+                {!loading && images === null ? (<p> No Images to show</p>) : images.map(image => <ImageItem image={image} key={image._id} />)}
             </Masonry>
         </div>
     );
