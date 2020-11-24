@@ -1,4 +1,4 @@
-import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING, SET_CURRENT_ALBUM, SET_IMAGES, IMAGES_ERROR } from './types';
+import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING, SET_CURRENT_ALBUM, CLEAR_CURRENT_ALBUM, SET_IMAGES, IMAGES_ERROR } from './types';
 import axios from 'axios';
 
 export const getAlbums = () => async dispatch => {
@@ -35,16 +35,29 @@ export const setImages = album => async dispatch => {
         console.log('All Images Retrieved');
         console.log(res.data);
 
-        dispatch({
-            type: SET_IMAGES,
-            payload: res.data
-        })
+        if (album === null) {
+            dispatch({
+                type: SET_IMAGES,
+                payload: null
+            })
+        } else {
+            dispatch({
+                type: SET_IMAGES,
+                payload: res.data
+            })
+        }
     } catch (error) {
         dispatch({
             type: IMAGES_ERROR,
             payload: error.response.data
         })
     }
+}
+
+export const clearCurrentAlbum = () => dispatch => {
+    dispatch ({
+        type: CLEAR_CURRENT_ALBUM
+    })
 }
 
 export const setLoading = () => {
