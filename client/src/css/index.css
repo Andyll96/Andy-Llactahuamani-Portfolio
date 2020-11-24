@@ -89,6 +89,7 @@ a .button {
 * {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -455,6 +456,7 @@ footer a {
   display: grid;
   -ms-grid-rows: 5fr 1fr;
       grid-template-rows: 5fr 1fr;
+  height: 60vh;
 }
 
 .photo-header .container {
@@ -512,6 +514,10 @@ footer a {
 .photo-header .album-nav button:hover {
   color: #646464;
   cursor: pointer;
+}
+
+.photo-header .album-nav button:focus {
+  outline: none;
 }
 
 .photo-header .album-description {

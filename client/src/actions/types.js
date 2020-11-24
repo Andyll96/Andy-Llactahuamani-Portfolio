@@ -6,7 +6,7 @@ export const CLEAR_CURRENT_ALBUM = 'CLEAR_CURRENT_ALBUM';
 
 export const SET_LOADING = 'SET_LOADING';
 
-export const GET_IMAGES = 'GET_IMAGES';
+export const SET_IMAGES = 'SET_IMAGES';
 export const IMAGES_ERROR = 'IMAGES_ERROR';
 
 export const SET_CURRENT_IMAGE = 'SET_CURRENT_IMAGE';

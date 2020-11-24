@@ -19,7 +19,6 @@ const ImagesSchema = mongoose.Schema({
     albumName: {
         type: String
     },
-
     dateTaken: {
         type: Date
     },

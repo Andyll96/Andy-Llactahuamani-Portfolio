@@ -1,4 +1,4 @@
-import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING, SET_CURRENT_ALBUM } from '../actions/types';
+import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING, SET_CURRENT_ALBUM, SET_IMAGES, IMAGES_ERROR } from '../actions/types';
 
 
 const initialState = {
@@ -34,6 +34,18 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 loading: true
+            }
+        case SET_IMAGES:
+            console.log('SETTING IMAGES');
+            return {
+                ...state,
+                images: action.payload
+            }
+        case IMAGES_ERROR:
+            console.error(action.payload);
+            return {
+                ...state,
+                error:action.payload
             }
         default:
             return state;

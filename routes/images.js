@@ -63,8 +63,8 @@ router.post('/', [
 router.get('/', async (req, res) => {
     // res.send('Registered photo into Album')
     try {
-        const images = await Image.find({ albumName: req.body.albumName });
         // respond with list of images
+        const images = await Image.find();
         // console.log(images);
         res.json(images);
     } catch (error) {
