@@ -32,18 +32,24 @@ export const setCurrentAlbum = album => dispatch => {
 export const setImages = album => async dispatch => {
     try {
         const res = await axios.get('/images');
-        console.log('All Images Retrieved');
-        console.log(res.data);
+        console.log('ALL Images Retrieved');
+        console.log('RES.DATA', res.data);
 
-        if (album === null || album.photoCount === 0) {
+        // if the currentALbum's image object is null OR the currentAlbum's photoCount is 0 OR the currentAlbum's image object doesn't equal the 
+        if (album.images === null || album.photoCount === 0) {
+            console.log('IMAGES ARE NULL');
             dispatch({
                 type: SET_IMAGES,
                 payload: null
             })
         } else {
+            // TODO: THIS WORKS BUT IS IT BETTER TO USE THE FILTERED STATE???
+            let filtered = res.data.filter(image => image.albumName === album.title);
+            console.log('FILTERED OVER HERE!!!', filtered);
+
             dispatch({
                 type: SET_IMAGES,
-                payload: res.data
+                payload: filtered
             })
         }
     } catch (error) {
