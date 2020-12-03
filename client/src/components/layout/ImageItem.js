@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 const ImageItem = ({image}) => {
     return (
         <div className="grid-item">
-            <img src={image.fileLocation} alt=""/>           
+            <a href="">
+                <img src={image.fileLocation} alt=""/>          
+            </a>
         </div>
     )
 }
