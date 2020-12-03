@@ -1,13 +1,14 @@
-import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING, SET_CURRENT_ALBUM, SET_IMAGES, IMAGES_ERROR, CLEAR_CURRENT_ALBUM } from '../actions/types';
+import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING_ALBUMS, SET_LOADING_IMAGES, SET_CURRENT_ALBUM, SET_FILTERED_IMAGES, GET_IMAGES, IMAGES_ERROR, CLEAR_CURRENT_ALBUM } from '../actions/types';
 
 
 const initialState = {
     albums: null,
-    images: null,
-    filteredImages: null,
+    loadingAlbums: false,
     currentAlbum: null,
+    images: null,
+    loadingImages: false,
+    filteredImages: null,
     currentImage: null,
-    loading: false,
     error: null
 }
 
@@ -17,7 +18,13 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 albums: action.payload,
-                loading: false
+                loadingAlbums: false
+            }
+        case GET_IMAGES:
+            return {
+                ...state,
+                images: action.payload,
+                loadingImages: false
             }
         case ALBUMS_ERROR:
             console.error(action.payload);
@@ -35,24 +42,29 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 currentAlbum: null,
-                images: null
+                filteredImages: null
             }
-        case SET_LOADING:
+        case SET_LOADING_ALBUMS:
             return {
                 ...state,
-                loading: true
+                loadingAlbums: true
             }
-        case SET_IMAGES:
-            console.log('SETTING IMAGES');
+        case SET_LOADING_IMAGES:
             return {
                 ...state,
-                images: action.payload
+                loadingImages: true
+            }
+        case SET_FILTERED_IMAGES:
+            console.log('SETTING FILTERED IMAGES');
+            return {
+                ...state,
+                filteredImages: action.payload
             }
         case IMAGES_ERROR:
             console.error(action.payload);
             return {
                 ...state,
-                error:action.payload
+                error: action.payload
             }
         default:
             return state;

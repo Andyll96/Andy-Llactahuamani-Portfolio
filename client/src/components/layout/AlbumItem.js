@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import {setCurrentAlbum, setImages} from '../../actions/photosActions'
+import {setCurrentAlbum, setFilteredImages} from '../../actions/photosActions'
 
-// AlbumItem will contain all of the images in an array of ImageItem components
-const AlbumItem = ({album, photos: {currentALbum}, setCurrentAlbum, setImages}) => {
+const AlbumItem = ({ photos: { images }, album, setCurrentAlbum, setFilteredImages}) => {
     const buttonClick = () => {
         console.log(album.title + ' Clicked');
         setCurrentAlbum(album);
-        setImages(album);
+
+        let filtered = images.filter(image => image.albumName === album.title);
+        setFilteredImages(filtered);
     }
 
     // console.log(album);
@@ -28,4 +29,4 @@ const mapStateToProps = state => ({
     photos: state.photos
 });
 
-export default connect(mapStateToProps, {setCurrentAlbum, setImages}) (AlbumItem)
+export default connect(mapStateToProps, {setCurrentAlbum, setFilteredImages}) (AlbumItem)
