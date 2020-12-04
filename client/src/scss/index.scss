@@ -15,17 +15,17 @@ body {
   // background: #37577c;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background: rgb(216, 216, 216);
   border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background: grey;
   border-radius: 5px;
 }
@@ -47,6 +47,7 @@ body {
   padding-left: 5rem;
   padding-right: 5rem;
   margin-top: 1.5rem;
+
   &-logo {
     font-family: Poppins, sans-serif;
     font-style: normal;
@@ -332,7 +333,7 @@ footer {
   }
 
   .album {
-    &-nav{
+    &-nav {
       grid-row-start: 2;
       display: flex;
       align-items: center;
@@ -343,8 +344,8 @@ footer {
       margin-bottom: 0.75rem;
       // border: black 1px dashed;
       overflow-y: hidden;
-      
-      button{
+
+      button {
         border: none;
         background: none;
         color: black;
@@ -353,16 +354,19 @@ footer {
         font-weight: normal;
         white-space: nowrap;
         font-size: 1.25rem;
-        
+
       }
-      button:hover{
+
+      button:hover {
         color: rgb(100, 100, 100);
         cursor: pointer;
       }
+
       button:focus {
-        outline: none; 
+        outline: none;
+      }
     }
-    }
+
     &-description {
       grid-row-start: 1;
       justify-items: center;
@@ -370,28 +374,29 @@ footer {
   }
 }
 
-.grid-item{
-  width: 300px;
-}
-
 // adjust based on screen width
-img{
-  width: 20vw;
-}
 
 .my-masonry-grid {
   display: flex;
   justify-self: center;
-  grid-gap: 1rem;
-  margin-top: 0.5rem;
-  padding-left: 5rem;
-  padding-right: 10rem;
+  // grid-gap: 1rem;
+  margin-top: 1rem;
+  // border: red 3px solid;
+}
+
+.grid-item, .grid-link, .grid-img {
+  width: 100%;
 }
 
 .my-masonry-grid_column {
-  background-clip: padding-box;
+  // border: blue 1px dashed;
+  margin: -1rem 1rem 0rem;
 }
 
-.my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
-  margin-bottom: 1rem;
+.my-masonry-grid_column:first-child{
+  margin-left: 0px;
+}
+
+.my-masonry-grid_column:last-child{
+  margin-right: 0px;
 }

@@ -54,8 +54,12 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                 </div>
             </div>
 
-            <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid" columnClassName="my-masonry-grid_column">
-                {loadingImages || images === null ? <Spinner /> : loadingImages || filteredImages === null ? images.map(image => <ImageItem image={image} key={image._id} />) : filteredImages.map(image => <ImageItem image={image} key={image._id} />)}
+            {/* columnClassName given to each column created */}
+            <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
+                {/* If images are loading and images object is null, show spinner */}
+                {/* else if not loading AND filtered images is null, show all images */}
+                {/* else show the filtered images */}
+                {loadingImages || images === null ? <Spinner /> : !loadingImages && filteredImages === null ? images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) : filteredImages.map(image => <ImageItem image={image} key={image._id} />)}
             </Masonry>
         </div>
     );
