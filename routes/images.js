@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator');
 
+const Album = require('../models/photos/Album');
 const Image = require('../models/photos/Image');
 
 // TODO: MUST ADD AUTHORIZATION FOR PRIVATE ROUTES
@@ -47,6 +48,7 @@ router.post('/', [
 
             // saves to the database
             const newImage = await image.save();
+            
 
             res.send('Image: ' + fileName + ' Saved\n' + newImage);
             

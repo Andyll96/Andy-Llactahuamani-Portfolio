@@ -1,4 +1,4 @@
-// This file will determine how requests are handled
+// 
 
 const express = require('express');
 const router = express.Router();
@@ -34,7 +34,9 @@ router.post('/', [
                 return res.status(400).json({ msg: 'Album already exists' });
             }
 
+            // Searches for any images with same album name
             let tempImages = await Image.find({ albumName: title });
+            // 
             images = tempImages;
 
             photoCount = images.length || 0;
@@ -76,6 +78,8 @@ router.get('/', async (req, res) => {
 // @route   UPDATE api/albums
 // @desc    Update Album
 // @access  Private
+// TODO: WHEN AN IMAGE IS INSERTED INTO THE DATABASE, YOU MUST UPDATE THE ALL ALBUM TO INCLUDE THE IMAGE AND TO UPDATE THE PHOTO COUNT
+// TODO: WHEN AN IMAGE IS ADDED IT MUST ALSO UPDATE 
 router.put('/:id', async (req, res) => {
     // res.send('Update Album')
     const { title, dateTaken, uploadDate, photoCount, description, images} = req.body;

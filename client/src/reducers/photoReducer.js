@@ -24,7 +24,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 images: action.payload,
-                loadingImages: false
             }
         case ALBUMS_ERROR:
             console.error(action.payload);
@@ -42,7 +41,8 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 currentAlbum: null,
-                filteredImages: null
+                filteredImages: null,
+                images: null
             }
         case SET_LOADING_ALBUMS:
             return {

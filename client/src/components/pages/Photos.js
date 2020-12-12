@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
 import { connect } from 'react-redux';
+import anime from 'animejs/lib/anime.es.js';
 import AlbumItem from '../layout/AlbumItem';
 import ImageItem from '../layout/ImageItem';
 import PropTypes from 'prop-types';
@@ -17,12 +18,21 @@ const breakpointColumnsObj = {
 
 const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadingImages, currentAlbum }, getAlbums, getImages }) => {
 
+    const imageElement = useRef(null);
+
+    // When photos page is initially loaded
     useEffect(() => {
-        // TODO: INCLUDE GETTING ALL OF THE IMAGES AND PUTTING THEM INTO THE IMAGES STATE
         getAlbums();
         getImages();
         // eslint-disable-next-line
     }, []);
+
+    // When filteredImages is changed
+    useEffect(() => {
+        if (filteredImages !== null) {
+            console.log(imageElement.current);
+        }
+    }, [filteredImages]);
 
     let loadingCenter;
     if (loadingAlbums || albums === null) {
@@ -35,22 +45,26 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
     }
 
 
-    const defaultDescription = 'I often find it difficult to maintain a certain level of creativity in my life. I find that the more time I spend away from being expressive, whether it be neglect in favor of certain responsibilities or lack of motivation, the harder it becomes to get in the mindset to be original and imaginative. It\'s the inertia of life that wants us to stay comfortable and static. But photography is inspiring to me, it\'s technicality and composition. It\'s not comfortable, it\'s exciting and fun. It\'s not static, it\'s challenging. This is a collection of my work. I hope you enjoy it as much as I did creating it.'
+
+    const defaultDescription = `I often find it difficult to maintain a certain level of creativity in my life. I find that the more time I spend away from being expressive, whether it be neglect in favor of certain responsibilities or lack of motivation, the harder it becomes to get in the mindset to be original and imaginative. It's the inertia of life that wants us to stay comfortable and static. But photography is inspiring to me, it's technicality and composition. It's not comfortable, it's exciting and fun. It's not static, it's challenging.`;
 
     return (
         <div className='below-nav'>
             {/* ALBUM NAME AND DESCRIPTION */}
             <div className="container photo-header px-5">
+                {/* ALBUM DESCRIPTION */}
                 <div className='container fade-in' >
-                    <h1>{currentAlbum === null ? 'Photography' : currentAlbum.title}</h1>
+                    <h1 className='photo-header-title'>{currentAlbum === null ? 'Photography' : currentAlbum.title}</h1>
                     <p className='album-description px-3'>
                         {currentAlbum === null ? defaultDescription : currentAlbum.description}
                     </p>
+                    <br />
+                    <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p>
                 </div>
                 {/* ALBUM NAVBAR */}
                 <div className="album-nav" style={loadingCenter}>
                     {/* Album Names */}
-                    {loadingAlbums || albums === null ? (<Spinner />) : !loadingAlbums && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={album} key={album._id} />)}
+                    {loadingAlbums || albums === null || images == null ? (<Spinner />) : !loadingAlbums && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={album} key={album._id} />)}
                 </div>
             </div>
 
@@ -59,7 +73,7 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                 {/* If images are loading and images object is null, show spinner */}
                 {/* else if not loading AND filtered images is null, show all images */}
                 {/* else show the filtered images */}
-                {loadingImages || images === null ? <Spinner /> : !loadingImages && filteredImages === null ? images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) : filteredImages.map(image => <ImageItem image={image} key={image._id} />)}
+                {loadingImages || images === null ? <Spinner /> : !loadingImages && filteredImages === null ? images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) : filteredImages.map(image => <ImageItem ref={imageElement} image={image} key={image._id} />)}
             </Masonry>
         </div>
     );

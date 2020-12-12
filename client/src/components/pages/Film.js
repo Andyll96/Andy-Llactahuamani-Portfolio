@@ -2,7 +2,7 @@ import React from 'react'
 
 const Film = () => {
     return (
-        <div>
+        <div className='below-nav'>
             <h1>This is the Film Page</h1>
         </div>
     )
