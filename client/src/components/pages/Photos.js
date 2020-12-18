@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { createRef, useEffect, useRef } from 'react';
 import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
 import { connect } from 'react-redux';
@@ -18,7 +18,7 @@ const breakpointColumnsObj = {
 
 const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadingImages, currentAlbum }, getAlbums, getImages }) => {
 
-    const imageElement = useRef(null);
+    const imageElement = useRef([createRef(), createRef(), createRef(), createRef(), createRef(), createRef(), createRef()]);
 
     // When photos page is initially loaded
     useEffect(() => {
@@ -30,7 +30,7 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
     // When filteredImages is changed
     useEffect(() => {
         if (filteredImages !== null) {
-            console.log(imageElement.current);
+            
         }
     }, [filteredImages]);
 
@@ -73,7 +73,7 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                 {/* If images are loading and images object is null, show spinner */}
                 {/* else if not loading AND filtered images is null, show all images */}
                 {/* else show the filtered images */}
-                {loadingImages || images === null ? <Spinner /> : !loadingImages && filteredImages === null ? images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) : filteredImages.map(image => <ImageItem ref={imageElement} image={image} key={image._id} />)}
+                {loadingImages || images === null ? <Spinner /> : !loadingImages && filteredImages === null ? images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) : filteredImages.map((image, i) => <ImageItem ref={imageElement.current[i]} image={image} key={image._id} />)}
             </Masonry>
         </div>
     );
