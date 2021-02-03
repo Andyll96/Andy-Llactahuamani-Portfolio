@@ -5,6 +5,8 @@ const { check, validationResult } = require('express-validator');
 const Album = require('../models/photos/Album');
 const Image = require('../models/photos/Image');
 
+// DELETE THIS COMMENT
+
 // TODO: MUST ADD AUTHORIZATION FOR PRIVATE ROUTES
 
 // @route   POST api/images
