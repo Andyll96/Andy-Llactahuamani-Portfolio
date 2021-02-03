@@ -1,5 +1,3 @@
-// 
-
 const express = require('express');
 const router = express.Router();
 // Express-validator is used for a form of error checking

@@ -18,18 +18,27 @@ const breakpointColumnsObj = {
 
 const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadingImages, currentAlbum }, getAlbums, getImages }) => {
 
-    const imageElement = useRef([createRef(), createRef(), createRef(), createRef(), createRef(), createRef(), createRef()]);
-
+    // const filteredImageElements = useRef([createRef(), createRef(), createRef(), createRef(), createRef(), createRef(), createRef()]);
+    let filteredImageElements = useRef([]);
+    
+    // const filteredImageElements = useRef(Array(filteredImages.length).fill().map((_, i) => createRef()));
+    
     // When photos page is initially loaded
     useEffect(() => {
         getAlbums();
         getImages();
         // eslint-disable-next-line
     }, []);
-
+    
     // When filteredImages is changed
     useEffect(() => {
-        if (filteredImages !== null) {
+        if (filteredImages !== null && filteredImageElements.current.length !== 0) {
+            filteredImageElements = Array(filteredImages.length).fill().map((_, i) => createRef());
+            filteredImageElements.current.forEach((el, i) => {
+                console.log(filteredImageElements.current[i].current.firstChild.firstChild)
+                console.log('Width: ',filteredImageElements.current[i].current.firstChild.firstChild.offsetWidth)
+                console.log('Height: ',filteredImageElements.current[i].current.firstChild.firstChild.offsetHeight)
+            });
             
         }
     }, [filteredImages]);
@@ -73,7 +82,7 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                 {/* If images are loading and images object is null, show spinner */}
                 {/* else if not loading AND filtered images is null, show all images */}
                 {/* else show the filtered images */}
-                {loadingImages || images === null ? <Spinner /> : !loadingImages && filteredImages === null ? images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) : filteredImages.map((image, i) => <ImageItem ref={imageElement.current[i]} image={image} key={image._id} />)}
+                {loadingImages || images === null ? <Spinner /> : !loadingImages && filteredImages === null ? images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) : filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)}
             </Masonry>
         </div>
     );

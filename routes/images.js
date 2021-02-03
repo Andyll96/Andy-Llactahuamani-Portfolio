@@ -28,10 +28,12 @@ router.post('/', [
 
         try {
             let existingImage = await Image.findOne({ fileName });
+            // if image exsists
             if (existingImage) {
                 return res.status(400).json({ msg: 'Image already exists' });
             }
 
+            // creates new Image Object
             let image = new Image({
                 fileName,
                 fileLocation,
