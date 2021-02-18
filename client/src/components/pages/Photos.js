@@ -53,8 +53,6 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
         loadingCenter = {}
     }
 
-
-
     const defaultDescription = `I often find it difficult to maintain a certain level of creativity in my life. I find that the more time I spend away from being expressive, whether it be neglect in favor of certain responsibilities or lack of motivation, the harder it becomes to get in the mindset to be original and imaginative. It's the inertia of life that wants us to stay comfortable and static. But photography is inspiring to me, it's technicality and composition. It's not comfortable, it's exciting and fun. It's not static, it's challenging.`;
 
     return (
@@ -63,6 +61,7 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
             <div className="container photo-header px-5">
                 {/* ALBUM DESCRIPTION */}
                 <div className='container fade-in' >
+                    {/* TODO: SET THE ALL ALBUM AS THE DEFAULT SO IT CAN DISPLAY THE TITLE AND DESCRIPTION PROPERLY */}
                     <h1 className='photo-header-title'>{currentAlbum === null ? 'Photography' : currentAlbum.title}</h1>
                     <p className='album-description px-3'>
                         {currentAlbum === null ? defaultDescription : currentAlbum.description}
