@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
+import { motion } from 'framer-motion';
 import { setCurrentAlbum, setFilteredImages } from '../../actions/photosActions'
 
 const AlbumItem = ({ photos: { images, currentAlbum }, album, setCurrentAlbum, setFilteredImages }) => {
@@ -17,6 +18,7 @@ const AlbumItem = ({ photos: { images, currentAlbum }, album, setCurrentAlbum, s
 
     const buttonClick = () => {
         console.log(album.title + ' Clicked');
+        window.scrollTo(0, 0);
         setCurrentAlbum(album);
         let filtered;
         if (album.title !== 'All Photos') {
@@ -30,9 +32,13 @@ const AlbumItem = ({ photos: { images, currentAlbum }, album, setCurrentAlbum, s
     // console.log(album);
 
     return (
-        <button className='fade-in' onClick={() => buttonClick()}>
+        <motion.button onClick={() => buttonClick()}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.8 }}
+        >
             {album.title}
-        </button>
+        </motion.button>
     )
 }
 

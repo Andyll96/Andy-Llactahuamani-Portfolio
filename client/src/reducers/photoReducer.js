@@ -3,8 +3,9 @@ import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING_ALBUMS, SET_LOADING_IMAGES, SET_C
 
 const initialState = {
     albums: null,
-    loadingAlbums: false,
+    loadingAlbums: null,
     currentAlbum: null,
+
     images: null,
     loadingImages: false,
     filteredImages: null,
@@ -18,7 +19,7 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 albums: action.payload,
-                loadingAlbums: false
+                loadingAlbums: false,
             }
         case GET_IMAGES:
             return {

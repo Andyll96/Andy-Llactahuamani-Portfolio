@@ -77,21 +77,3 @@ a {
 .my-5 {
     margin: 5rem 0rem;
 }
-
-.fade-in {
-    animation: fadeIn ease 3s;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-.fade-out {
-    animation: fadeOut ease 3s;
-}
