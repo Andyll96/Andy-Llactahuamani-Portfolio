@@ -1,14 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux';
-import {setCurrentAlbum, setFilteredImages} from '../../actions/photosActions'
+import { setCurrentAlbum, setFilteredImages } from '../../actions/photosActions'
 
-const AlbumItem = ({ photos: { images }, album, setCurrentAlbum, setFilteredImages}) => {
+const AlbumItem = ({ photos: { images, currentAlbum }, album, setCurrentAlbum, setFilteredImages }) => {
+
+    useEffect(() => {
+        console.log('AlbumItem useEffect HERE');
+        if (album.title === 'All Photos' && currentAlbum === null) {
+            setCurrentAlbum(album);
+            let filtered;
+            filtered = images;
+            setFilteredImages(filtered);
+        }
+    }, []);
+
     const buttonClick = () => {
         console.log(album.title + ' Clicked');
         setCurrentAlbum(album);
-
-        let filtered = images.filter(image => image.albumName === album.title);
+        let filtered;
+        if (album.title !== 'All Photos') {
+            filtered = images.filter(image => image.albumName === album.title);
+        } else {
+            filtered = images;
+        }
         setFilteredImages(filtered);
     }
 
@@ -29,4 +44,4 @@ const mapStateToProps = state => ({
     photos: state.photos
 });
 
-export default connect(mapStateToProps, {setCurrentAlbum, setFilteredImages}) (AlbumItem)
+export default connect(mapStateToProps, { setCurrentAlbum, setFilteredImages })(AlbumItem)

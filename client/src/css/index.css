@@ -113,6 +113,8 @@ a .button {
 }
 
 body {
+  max-width: 100%;
+  overflow-x: hidden;
   font-family: Poppins, sans-serif, Old Standard, serif;
   line-height: 1.6;
 }
