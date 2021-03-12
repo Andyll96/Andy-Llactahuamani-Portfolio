@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { clearCurrentAlbum} from '../../actions/photosActions';
+import { clearCurrentAlbum, clearCurrentImage} from '../../actions/photosActions';
 
 
-const Navbar = ({ title, icon, clearCurrentAlbum }) => {
+const Navbar = ({ title, icon, clearCurrentAlbum, clearCurrentImage }) => {
     return (
         <div className='navbar container'>
             <h1>
@@ -13,11 +13,11 @@ const Navbar = ({ title, icon, clearCurrentAlbum }) => {
                 <i className={icon}> {title}</i>
             </h1>
             <ul>
-                <li><Link to='/' onClick={() => clearCurrentAlbum()}>Home</Link></li>
-                <li><Link to='/about' onClick={() => clearCurrentAlbum()}>About</Link></li>
-                <li><Link to='/photos' onClick={() => clearCurrentAlbum()}>Photo</Link></li>
-                <li><Link to='/film' onClick={() => clearCurrentAlbum()}>Film</Link></li>
-                <li><Link to='/code' onClick={() => clearCurrentAlbum()}>Code</Link></li>
+                <li><Link to='/' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>Home</Link></li>
+                <li><Link to='/about' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>About</Link></li>
+                <li><Link to='/photos' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>Photo</Link></li>
+                <li><Link to='/film' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>Film</Link></li>
+                <li><Link to='/code' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>Code</Link></li>
             </ul>
         </div>
     )
@@ -37,4 +37,4 @@ const mapStateToProps = state => ({
     photos: state.photos
 });
 
-export default connect(mapStateToProps, { clearCurrentAlbum })(Navbar);
+export default connect(mapStateToProps, { clearCurrentAlbum, clearCurrentImage })(Navbar);

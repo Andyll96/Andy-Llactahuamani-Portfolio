@@ -1,4 +1,4 @@
-import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING_ALBUMS, SET_LOADING_IMAGES, SET_CURRENT_ALBUM, SET_FILTERED_IMAGES, GET_IMAGES, IMAGES_ERROR, CLEAR_CURRENT_ALBUM } from '../actions/types';
+import { GET_ALBUMS, ALBUMS_ERROR, SET_LOADING_ALBUMS, SET_LOADING_IMAGES, SET_CURRENT_ALBUM, SET_FILTERED_IMAGES, GET_IMAGES, IMAGES_ERROR, CLEAR_CURRENT_ALBUM, SET_CURRENT_IMAGE, CLEAR_CURRENT_IMAGE } from '../actions/types';
 
 
 const initialState = {
@@ -66,6 +66,17 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 error: action.payload
+            }
+        case SET_CURRENT_IMAGE:
+            console.log(action.payload, 'is now the current image');
+            return{
+                ...state,
+                currentImage: action.payload
+            }
+        case CLEAR_CURRENT_IMAGE:
+            return{
+                ...state,
+                currentImage: null
             }
         default:
             return state;

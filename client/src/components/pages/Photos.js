@@ -55,8 +55,19 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
         loadingCenter = {}
     }
 
+    const container = {
+        hidden:{opacity: 0},
+        visible: {
+            opacity: 1,
+            transition: {
+                delayChildren: 1,
+                staggerChildren: 0.8
+            }
+        }
+    };
+
     return (
-        <div className='below-nav'        >
+        <motion.div className='below-nav' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             {/* ALBUM NAME AND DESCRIPTION */}
             <div className="container photo-header px-5">
                 {/* ALBUM DESCRIPTION */}
@@ -89,16 +100,18 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
             </div>
 
             {/* columnClassName given to each column created */}
-            <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
+            <motion.div variants={container} initial="hidden" animate="visible" >
+                <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
                     {
-                    loadingImages || images === null ?
-                    <Spinner /> :
-                    !loadingImages && filteredImages === null ?
-                    images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) :
-                    filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)
+                        loadingImages || images === null ?
+                            <Spinner /> :
+                            !loadingImages && filteredImages === null ?
+                                images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) :
+                                filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)
                     }
-            </Masonry>
-        </div>
+                </Masonry>
+            </motion.div>
+        </motion.div>
     );
 };
 

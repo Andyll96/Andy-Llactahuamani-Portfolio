@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from "react-router-dom";
 import FeaturedPhotoGallery from '../layout/FeaturedPhotoGallery';
 import FeaturedCode from '../layout/FeaturedCode';
@@ -6,7 +7,7 @@ import FeaturedCode from '../layout/FeaturedCode';
 
 const Home = () => {
   return (
-    <div>
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       {/* Header Section */}
       <header>
         <h1>Andy Llactahuamani</h1>
@@ -79,7 +80,7 @@ const Home = () => {
       <section className='section-code'>
         <FeaturedCode />
       </section>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,4 +1,4 @@
-import { GET_ALBUMS, ALBUMS_ERROR, SET_CURRENT_ALBUM, CLEAR_CURRENT_ALBUM, SET_FILTERED_IMAGES, GET_IMAGES, IMAGES_ERROR, SET_LOADING_ALBUMS, SET_LOADING_IMAGES } from './types';
+import { GET_ALBUMS, ALBUMS_ERROR, SET_CURRENT_ALBUM, CLEAR_CURRENT_ALBUM, SET_FILTERED_IMAGES, GET_IMAGES, IMAGES_ERROR, SET_LOADING_ALBUMS, SET_LOADING_IMAGES, SET_CURRENT_IMAGE, CLEAR_CURRENT_IMAGE } from './types';
 import axios from 'axios';
 
 export const getAlbums = () => async dispatch => {
@@ -46,7 +46,7 @@ export const setCurrentAlbum = album => dispatch => {
         type: SET_CURRENT_ALBUM,
         payload: album
     })
-}
+};
 
 export const setFilteredImages = filteredImages => async dispatch => {
     dispatch({
@@ -59,7 +59,7 @@ export const clearCurrentAlbum = () => dispatch => {
     dispatch ({
         type: CLEAR_CURRENT_ALBUM
     })
-}
+};
 
 export const setLoadingImages = () => {
     return {
@@ -72,3 +72,16 @@ export const setLoadingAlbums = () => {
         type: SET_LOADING_ALBUMS
     };
 };
+
+export const setCurrentImage = image => dispatch => {
+    dispatch({
+        type: SET_CURRENT_IMAGE,
+        payload: image
+    })
+}
+
+export const clearCurrentImage = () => dispatch => {
+    dispatch({
+        type: CLEAR_CURRENT_IMAGE
+    })
+}
