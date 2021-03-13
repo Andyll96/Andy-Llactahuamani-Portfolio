@@ -386,14 +386,16 @@ footer {
 
 .grid-item, .grid-link, .grid-img {
   width: 100%;
+  z-index: -1;
 }
 
 .grid-link{
   border: none;
 }
 
-.test{
-  width: 90vw
+.selected{
+  width: 90vw;
+  z-index: 3;
 }
 
 .my-masonry-grid_column {
@@ -407,4 +409,10 @@ footer {
 
 .my-masonry-grid_column:last-child{
   margin-right: 0px;
+}
+
+// Current Image Item
+.current-image{
+  max-height: 60vh;
+  max-width: 100vw;
 }

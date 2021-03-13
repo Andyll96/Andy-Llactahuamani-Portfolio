@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { setCurrentImage, clearCurrentImage } from '../../actions/photosActions';
@@ -30,9 +30,8 @@ const ImageItem = ({ photos: { currentImage }, image, setCurrentImage, clearCurr
         clearCurrentImage();
     }
     return (
-        <>
+        <AnimateSharedLayout>
             {
-                !currentImage &&
                 <AnimatePresence>
                     <motion.div ref={ref} className="grid-item my-1" variants={item}>
                         <button href="" className='grid-link' onClick={() => setCurrent()}>
@@ -46,14 +45,14 @@ const ImageItem = ({ photos: { currentImage }, image, setCurrentImage, clearCurr
                 // console.log('RENDER!!!') &&
                 <AnimatePresence>
                     {/* What happens to the image when it is sellected */}
-                    <motion.div className='test'>
-                        <button className='test' onClick={() => clearCurrent()}>
-                            <img className='test' src={image.fileLocation}></img>
+                    <motion.div className='selected'>
+                        <button className='selected' onClick={() => clearCurrent()}>
+                            <img className='selected' src={image.fileLocation}></img>
                         </button>
                     </motion.div>
                 </AnimatePresence>
             }
-        </>
+        </AnimateSharedLayout>
     )
 }
 

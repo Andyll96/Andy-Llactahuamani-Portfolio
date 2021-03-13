@@ -6,6 +6,7 @@ import anime from 'animejs/lib/anime.es.js';
 import { AnimatePresence, motion } from 'framer-motion'
 import AlbumItem from '../layout/AlbumItem';
 import ImageItem from '../layout/ImageItem';
+import CurrentImageItem from '../layout/CurrentImageItem';
 import PropTypes from 'prop-types';
 import { getAlbums, getImages } from '../../actions/photosActions';
 
@@ -17,7 +18,7 @@ const breakpointColumnsObj = {
     500: 1
 };
 
-const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadingImages, currentAlbum }, getAlbums, getImages }) => {
+const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadingImages, currentAlbum, currentImage }, getAlbums, getImages }) => {
 
     // const filteredImageElements = useRef([createRef(), createRef(), createRef(), createRef(), createRef(), createRef(), createRef()]);
     let filteredImageElements = useRef([]); //this one works
@@ -56,17 +57,18 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
     }
 
     const container = {
-        hidden:{opacity: 0},
+        hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                delayChildren: 1,
-                staggerChildren: 0.8
+                staggerChildren: 0.08
             }
         }
     };
 
     return (
+        !currentImage ?
+        (
         <motion.div className='below-nav' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             {/* ALBUM NAME AND DESCRIPTION */}
             <div className="container photo-header px-5">
@@ -111,7 +113,10 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                     }
                 </Masonry>
             </motion.div>
+
         </motion.div>
+        ) : 
+        <CurrentImageItem/>
     );
 };
 
