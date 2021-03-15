@@ -30,29 +30,13 @@ const ImageItem = ({ photos: { currentImage }, image, setCurrentImage, clearCurr
         clearCurrentImage();
     }
     return (
-        <AnimateSharedLayout>
-            {
-                <AnimatePresence>
-                    <motion.div ref={ref} className="grid-item my-1" variants={item}>
-                        <button href="" className='grid-link' onClick={() => setCurrent()}>
-                            <img className='grid-img' src={image.thumbLocation} alt="" />
-                        </button>
-                    </motion.div>
-                </AnimatePresence>
-            }
-            {
-                currentImage == image &&
-                // console.log('RENDER!!!') &&
-                <AnimatePresence>
-                    {/* What happens to the image when it is sellected */}
-                    <motion.div className='selected'>
-                        <button className='selected' onClick={() => clearCurrent()}>
-                            <img className='selected' src={image.fileLocation}></img>
-                        </button>
-                    </motion.div>
-                </AnimatePresence>
-            }
-        </AnimateSharedLayout>
+
+        <motion.div ref={ref} className="grid-item my-1" variants={item}>
+            <button href="" className='grid-link' onClick={() => setCurrent()}>
+                <img className='grid-img' src={image.thumbLocation} alt="" />
+            </button>
+        </motion.div>
+
     )
 }
 

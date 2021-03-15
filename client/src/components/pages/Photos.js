@@ -3,7 +3,7 @@ import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
 import { connect } from 'react-redux';
 import anime from 'animejs/lib/anime.es.js';
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 import AlbumItem from '../layout/AlbumItem';
 import ImageItem from '../layout/ImageItem';
 import CurrentImageItem from '../layout/CurrentImageItem';
@@ -67,7 +67,8 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
     };
 
     return (
-        !currentImage ?
+        <AnimateSharedLayout type="crossfade">
+        {!currentImage ?
         (
         <motion.div className='below-nav' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
             {/* ALBUM NAME AND DESCRIPTION */}
@@ -116,7 +117,8 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
 
         </motion.div>
         ) : 
-        <CurrentImageItem/>
+        <CurrentImageItem layoutId="current"/>}
+        </AnimateSharedLayout>
     );
 };
 
