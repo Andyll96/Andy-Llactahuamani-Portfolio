@@ -68,56 +68,58 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
 
     return (
         <AnimateSharedLayout type="crossfade">
-        {!currentImage ?
-        (
-        <motion.div className='below-nav' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            {/* ALBUM NAME AND DESCRIPTION */}
-            <div className="container photo-header px-5">
-                {/* ALBUM DESCRIPTION */}
-                <div className='container' >
-                    <AnimatePresence>
-                        {
-                            currentAlbum === null ?
-                                <h1></h1> :
-                                currentAlbum.title === 'All Photos' ?
-                                    <motion.h1 key={currentAlbum._id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} >Photography</motion.h1> :
-                                    <motion.h1 key={currentAlbum._id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} >{currentAlbum.title}</motion.h1>
-                        }
-                    </AnimatePresence>
+            <AnimatePresence>
+                {!currentImage ?
+                    (
+                        <motion.div className='below-nav' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                            {/* ALBUM NAME AND DESCRIPTION */}
+                            <div className="container photo-header px-5">
+                                {/* ALBUM DESCRIPTION */}
+                                <div className='container' >
+                                    <AnimatePresence>
+                                        {
+                                            currentAlbum === null ?
+                                                <h1></h1> :
+                                                currentAlbum.title === 'All Photos' ?
+                                                    <motion.h1 key={currentAlbum._id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} >Photography</motion.h1> :
+                                                    <motion.h1 key={currentAlbum._id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} >{currentAlbum.title}</motion.h1>
+                                        }
+                                    </AnimatePresence>
 
-                    <AnimatePresence>
-                        {
-                            currentAlbum === null ?
-                                <p></p> :
-                                <motion.p key={currentAlbum._id} initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.0 }}>{currentAlbum.description}</motion.p>
-                        }
-                    </AnimatePresence>
-                    <br />
-                    {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
-                </div>
-                {/* ALBUM NAVBAR */}
-                <div className="album-nav" style={loadingCenter}>
-                    {/* Album Names */}
-                    {loadingAlbums || albums === null || images == null ? (<Spinner />) : !loadingAlbums && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={album} key={album._id} />)}
-                </div>
-            </div>
+                                    <AnimatePresence>
+                                        {
+                                            currentAlbum === null ?
+                                                <p></p> :
+                                                <motion.p key={currentAlbum._id} initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.0 }}>{currentAlbum.description}</motion.p>
+                                        }
+                                    </AnimatePresence>
+                                    <br />
+                                    {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
+                                </div>
+                                {/* ALBUM NAVBAR */}
+                                <div className="album-nav" style={loadingCenter}>
+                                    {/* Album Names */}
+                                    {loadingAlbums || albums === null || images == null ? (<Spinner />) : !loadingAlbums && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={album} key={album._id} />)}
+                                </div>
+                            </div>
 
-            {/* columnClassName given to each column created */}
-            <motion.div variants={container} initial="hidden" animate="visible" >
-                <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
-                    {
-                        loadingImages || images === null ?
-                            <Spinner /> :
-                            !loadingImages && filteredImages === null ?
-                                images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) :
-                                filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)
-                    }
-                </Masonry>
-            </motion.div>
+                            {/* columnClassName given to each column created */}
+                            <motion.div variants={container} initial="hidden" animate="visible" >
+                                <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
+                                    {
+                                        loadingImages || images === null ?
+                                            <Spinner /> :
+                                            !loadingImages && filteredImages === null ?
+                                                images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) :
+                                                filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)
+                                    }
+                                </Masonry>
+                            </motion.div>
 
-        </motion.div>
-        ) : 
-        <CurrentImageItem layoutId="current"/>}
+                        </motion.div>
+                    ) :
+                    <CurrentImageItem layoutId="current" />}
+            </AnimatePresence>
         </AnimateSharedLayout>
     );
 };

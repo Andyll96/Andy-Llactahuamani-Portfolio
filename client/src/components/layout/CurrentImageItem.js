@@ -29,30 +29,29 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage }, cl
             <a className="exit-button" onClick={() => exitCurrentImage()}>
                 <i class="fas fa-times fa-3x"></i>
             </a>
-
             <div>
                 <img className="current-image" src={currentImage.fileLocation} ></img>
             </div>
 
             <div className="current-image-info">
-                <div>
-                    <h3 className="current-image-camera">{currentImage.camera}</h3>
-                </div>
-                <div>
-                    <h3 className="current-image-camera">{currentImage.focalLength}mm</h3>
-                </div>
-                <div>
-                    <h3 className="current-image-camera">f/{currentImage.fStop}</h3>
-                </div>
-                <div>
-                    <h3 className="current-image-camera">{currentImage.shutterSpeed}</h3>
-                </div>
-                <div>
-                    <h3 className="current-image-camera">ISO {currentImage.iso}</h3>
-                </div>
+                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                    <h2 className="current-image-camera">{currentImage.camera}</h2>
+                </motion.div>
+                <motion.div>
+                    <h2 className="current-image-camera">{currentImage.focalLength}mm</h2>
+                </motion.div>
+                <motion.div>
+                    <h2 className="current-image-camera">f/{currentImage.fStop}</h2>
+                </motion.div>
+                <motion.div>
+                    <h2 className="current-image-camera">{currentImage.shutterSpeed}</h2>
+                </motion.div>
+                <motion.div>
+                    <h2 className="current-image-camera">ISO {currentImage.iso}</h2>
+                </motion.div>
             </div>
-            <div>
-                {/* Carosel */}
+            <div className="carousel">
+                {/* carousel */}
             </div>
         </motion.div>
     )
