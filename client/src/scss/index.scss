@@ -437,7 +437,7 @@ footer {
 }
 
 .current-image {
-  max-height: 65vh;
+  max-height: 60vh;
   max-width: 100vw;
 }
 
@@ -450,5 +450,30 @@ footer {
 
 .carousel {
   height: 19vh;
-  width: 100vw;
+  width: 85vw;
+  // border: red 2px solid;
+
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+  justify-content: space-evenly;
+  align-items: center;
+
+  &-link{
+    height: 90%;
+    width: 12vw;
+    // border: green 2px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  &-link:hover{
+    cursor: pointer;
+  }
+
+  &-img{
+    height: 100%;
+  }
 }
