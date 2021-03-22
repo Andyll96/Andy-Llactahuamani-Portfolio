@@ -3,7 +3,7 @@ import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { connect } from "react-redux";
 import { setCurrentImage, clearCurrentImage, setCurrentAlbum } from "../../actions/photosActions";
 
-const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, currentAlbum }, clearCurrentImage }) => {
+const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, currentAlbum }, setCurrentImage, clearCurrentImage }) => {
 
     let carouselImages = [];
 
@@ -36,6 +36,10 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                 }
             }
         }
+    }
+
+    const setCurrent = image => {
+        setCurrentImage(image);
     }
 
     document.addEventListener('keydown', function (event) {
@@ -77,9 +81,9 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                 {setCarouselImages()}
                 {console.log(carouselImages)}
                 {carouselImages.map(image => (
-                    <a className="carousel-link">
+                    <button className="carousel-link" onClick={() => setCurrent(image)}>
                         <img className="carousel-img" src={image.thumbLocation}></img>
-                    </a>
+                    </button>
                 ))}
             </div>
         </motion.div>

@@ -499,6 +499,7 @@ footer a {
 .current-image-info {
   width: 60vw;
   margin-top: 2rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-around;
 }
@@ -516,6 +517,8 @@ footer a {
 .carousel-link {
   height: 90%;
   width: 12vw;
+  border: none;
+  background-color: none;
   display: flex;
   justify-content: center;
   align-items: center;
