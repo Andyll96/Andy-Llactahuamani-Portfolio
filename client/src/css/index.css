@@ -518,7 +518,7 @@ footer a {
   height: 90%;
   width: 12vw;
   border: none;
-  background-color: none;
+  background: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -527,6 +527,11 @@ footer a {
 
 .carousel-link:hover {
   cursor: pointer;
+}
+
+.carousel-link:active {
+  outline: none;
+  border: none;
 }
 
 .carousel-img {

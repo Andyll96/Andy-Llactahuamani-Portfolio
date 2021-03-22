@@ -464,7 +464,7 @@ footer {
     height: 90%;
     width: 12vw;
     border: none;
-    background-color: none;
+    background: none;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -473,6 +473,11 @@ footer {
 
   &-link:hover{
     cursor: pointer;
+  }
+
+  &-link:active{
+    outline: none;
+    border: none;
   }
 
   &-img{

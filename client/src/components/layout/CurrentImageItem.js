@@ -10,9 +10,13 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
     useEffect(() => {
         // TODO: THIS MAY HAVE TO CHANGE DEPENDING ON HOW THE PAGE LOADS ON DIFFERENT DEVICES
         window.scrollTo(0, 113);
+        document.body.style.overflow = 'hidden';
     }, []);
 
+
     const exitCurrentImage = () => {
+        document.body.style.overflow = 'unset';
+        window.scrollTo(0, 0);
         clearCurrentImage();
     }
 
