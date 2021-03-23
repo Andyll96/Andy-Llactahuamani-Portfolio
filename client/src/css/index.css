@@ -401,6 +401,14 @@ footer a {
   overflow-y: hidden;
 }
 
+.photo-header .album-nav:hover {
+  cursor: grab;
+}
+
+.photo-header .album-nav:active {
+  cursor: grabbing;
+}
+
 .photo-header .album-nav button {
   border: none;
   background: none;
@@ -437,6 +445,7 @@ footer a {
 .grid-img {
   width: 100%;
   z-index: -1;
+  outline: none;
 }
 
 .grid-link {
@@ -483,17 +492,46 @@ footer a {
 
 .exit-button:hover {
   cursor: pointer;
+  opacity: 80%;
 }
 
 .exit-button {
   align-self: flex-end;
   margin-right: 10rem;
   margin-top: 3rem;
+  opacity: 20%;
+}
+
+.current {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .current-image {
   max-height: 60vh;
   max-width: 100vw;
+  border: black solid 1px;
+}
+
+.current-prev {
+  margin-right: 5rem;
+  opacity: 20%;
+}
+
+.current-prev:hover {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.current-next {
+  margin-left: 5rem;
+  opacity: 20%;
+}
+
+.current-next:hover {
+  opacity: 80%;
+  cursor: pointer;
 }
 
 .current-image-info {
@@ -523,18 +561,15 @@ footer a {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  outline: none;
 }
 
 .carousel-link:hover {
   cursor: pointer;
 }
 
-.carousel-link:active {
-  outline: none;
-  border: none;
-}
-
 .carousel-img {
-  height: 100%;
+  width: 99%;
+  border: black solid 1px;
 }
 /*# sourceMappingURL=index.css.map */

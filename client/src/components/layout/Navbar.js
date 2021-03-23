@@ -13,11 +13,11 @@ const Navbar = ({ title, icon, clearCurrentAlbum, clearCurrentImage }) => {
                 <i className={icon}> {title}</i>
             </h1>
             <ul>
-                <li><Link to='/' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>Home</Link></li>
-                <li><Link to='/about' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>About</Link></li>
-                <li><Link to='/photos' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>Photo</Link></li>
-                <li><Link to='/film' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>Film</Link></li>
-                <li><Link to='/code' onClick={() => {clearCurrentAlbum(); clearCurrentImage()}}>Code</Link></li>
+                <li><Link to='/' onClick={() => {clearCurrentAlbum(); clearCurrentImage(); document.body.style.overflow = 'unset';}}>Home</Link></li>
+                <li><Link to='/about' onClick={() => {clearCurrentAlbum(); clearCurrentImage(); document.body.style.overflow = 'unset';}}>About</Link></li>
+                <li><Link to='/photos' onClick={() => {clearCurrentAlbum(); clearCurrentImage(); document.body.style.overflow = 'unset';}}>Photo</Link></li>
+                <li><Link to='/film' onClick={() => {clearCurrentAlbum(); clearCurrentImage(); document.body.style.overflow = 'unset';}}>Film</Link></li>
+                <li><Link to='/code' onClick={() => {clearCurrentAlbum(); clearCurrentImage(); document.body.style.overflow = 'unset';}}>Code</Link></li>
             </ul>
         </div>
     )

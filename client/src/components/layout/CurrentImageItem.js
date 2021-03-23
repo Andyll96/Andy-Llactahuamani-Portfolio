@@ -60,8 +60,10 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
             <a className="exit-button" onClick={() => exitCurrentImage()}>
                 <i className="fas fa-times fa-3x"></i>
             </a>
-            <div>
+            <div className="current">
+                <i class="fas fa-chevron-left fa-7x current-prev"></i>
                 <img className="current-image" src={currentImage.fileLocation} ></img>
+                <i class="fas fa-chevron-right fa-7x current-next"></i>
             </div>
 
             <div className="current-image-info">
