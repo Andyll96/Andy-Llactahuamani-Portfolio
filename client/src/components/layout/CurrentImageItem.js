@@ -86,10 +86,16 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
     document.addEventListener('keydown', function (event) {
         if (event.keyCode == 27)
             exitCurrentImage();
-        if (event.keyCode == 70)
+        else if (event.keyCode == 70)
             document.querySelector('.current-image').requestFullscreen().catch((e) => {
                 console.log(e);
             });
+        else if (event.keyCode == 37) {
+            prevClick();
+        }
+        else if (event.keyCode == 39){
+            nextClick();
+        }
     })
 
     return (
