@@ -60,15 +60,27 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
     }
 
     const setCurrent = image => {
-        setCurrentImage(image);
+        setCurrent(image);
     }
 
     const prevClick = () => {
-        setCurrent(prevImage);
+        if (prevImage == null) {
+            document.body.style.overflow = 'unset';
+            window.scrollTo(0, 0);
+            setCurrentImage(prevImage);
+        } else {
+            setCurrentImage(prevImage);
+        }
     }
     
     const nextClick = () => {
-        setCurrent(nextImage);
+        if (nextImage == null) {
+            document.body.style.overflow = 'unset';
+            window.scrollTo(0, 0);
+            setCurrentImage(nextImage);
+        } else {
+            setCurrentImage(nextImage);
+        }
     }
 
     document.addEventListener('keydown', function (event) {
@@ -86,9 +98,9 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                 <i className="fas fa-times fa-3x"></i>
             </a>
             <div className="current">
-                <i class="fas fa-chevron-left fa-7x current-prev" onClick={() => prevClick()}></i>
+                <i className="fas fa-chevron-left fa-7x current-prev" onClick={() => prevClick()}></i>
                 <img className="current-image" src={currentImage.fileLocation} ></img>
-                <i class="fas fa-chevron-right fa-7x current-next" onClick={() => nextClick()}></i>
+                <i className="fas fa-chevron-right fa-7x current-next" onClick={() => nextClick()}></i>
             </div>
 
             <div className="current-image-info">
@@ -112,7 +124,7 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                 {setCarouselImages()}
                 {console.log(carouselImages)}
                 {carouselImages.map(image => (
-                    <button className="carousel-link" onClick={() => setCurrent(image)}>
+                    <button key={image._id} className="carousel-link" onClick={() => setCurrent(image)}>
                         <img className="carousel-img" src={image.thumbLocation}></img>
                     </button>
                 ))}
