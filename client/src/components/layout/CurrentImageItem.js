@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import KeyboardEventHandler from 'react-keyboard-event-handler';
 import { connect } from "react-redux";
 import { setCurrentImage, clearCurrentImage, setCurrentAlbum } from "../../actions/photosActions";
 
@@ -72,7 +73,7 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
             setCurrentImage(prevImage);
         }
     }
-    
+
     const nextClick = () => {
         if (nextImage == null) {
             document.body.style.overflow = 'unset';
@@ -83,23 +84,26 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
         }
     }
 
-    document.addEventListener('keydown', function (event) {
-        if (event.keyCode == 27)
-            exitCurrentImage();
-        else if (event.keyCode == 70)
+    const keyHandler = key => {
+        if (key === 'f') {
             document.querySelector('.current-image').requestFullscreen().catch((e) => {
                 console.log(e);
             });
-        else if (event.keyCode == 37) {
+        } else if(key === 'esc'){
+            exitCurrentImage();
+        } else if(key === 'left'){
             prevClick();
-        }
-        else if (event.keyCode == 39){
+        } else if(key === 'right'){
             nextClick();
         }
-    })
+    }
 
     return (
         <motion.div className="current-image-page below-nav">
+            <KeyboardEventHandler
+                handleKeys={['f', 'esc', 'left', 'right']}
+                onKeyEvent={(key, e) => keyHandler(key)}
+            />
             <a className="exit-button" onClick={() => exitCurrentImage()}>
                 <i className="fas fa-times fa-3x"></i>
             </a>
