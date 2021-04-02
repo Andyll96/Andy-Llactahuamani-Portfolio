@@ -393,7 +393,7 @@ footer a {
   grid-row-start: 2;
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: center;
   grid-gap: 5rem;
   overflow: scroll;
   margin-right: 2.5rem;
@@ -544,7 +544,7 @@ footer a {
 
 .carousel {
   height: 19vh;
-  width: 85vw;
+  width: 95vw;
   display: flex;
   flex-direction: row;
   justify-self: center;

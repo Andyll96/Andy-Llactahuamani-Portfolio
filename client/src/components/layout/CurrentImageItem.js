@@ -61,7 +61,7 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
     }
 
     const setCurrent = image => {
-        setCurrent(image);
+        setCurrentImage(image);
     }
 
     const prevClick = () => {
@@ -89,28 +89,23 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
             document.querySelector('.current-image').requestFullscreen().catch((e) => {
                 console.log(e);
             });
-        } else if(key === 'esc'){
+        } else if (key === 'esc') {
             exitCurrentImage();
-        } else if(key === 'left'){
+        } else if (key === 'left') {
             prevClick();
-        } else if(key === 'right'){
+        } else if (key === 'right') {
             nextClick();
         }
     }
 
     return (
         <motion.div className="current-image-page below-nav">
-            <KeyboardEventHandler
-                handleKeys={['f', 'esc', 'left', 'right']}
-                onKeyEvent={(key, e) => keyHandler(key)}
-            />
+            <KeyboardEventHandler handleKeys={['f', 'esc', 'left', 'right']} onKeyEvent={(key, e) => keyHandler(key)} />
             <a className="exit-button" onClick={() => exitCurrentImage()}>
                 <i className="fas fa-times fa-3x"></i>
             </a>
             <div className="current">
-                <i className="fas fa-chevron-left fa-7x current-prev" onClick={() => prevClick()}></i>
                 <img className="current-image" src={currentImage.fileLocation} ></img>
-                <i className="fas fa-chevron-right fa-7x current-next" onClick={() => nextClick()}></i>
             </div>
 
             <div className="current-image-info">
@@ -131,6 +126,7 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                 </motion.div>
             </div>
             <div className="carousel">
+                <i className="fas fa-chevron-left fa-5x current-prev" onClick={() => prevClick()}></i>
                 {setCarouselImages()}
                 {console.log(carouselImages)}
                 {carouselImages.map(image => (
@@ -138,6 +134,8 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                         <img className="carousel-img" src={image.thumbLocation}></img>
                     </button>
                 ))}
+                <i className="fas fa-chevron-right fa-5x current-next" onClick={() => nextClick()}></i>
+
             </div>
         </motion.div>
     )
