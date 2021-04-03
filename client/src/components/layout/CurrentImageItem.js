@@ -12,7 +12,7 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
 
     useEffect(() => {
         // TODO: THIS MAY HAVE TO CHANGE DEPENDING ON HOW THE PAGE LOADS ON DIFFERENT DEVICES
-        window.scrollTo(0, 113);
+        window.scrollTo(0, 110);
         document.body.style.overflow = 'hidden';
     }, []);
 
@@ -105,6 +105,7 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                 <i className="fas fa-times fa-3x"></i>
             </a>
             <div className="current">
+
                 <img className="current-image" src={currentImage.fileLocation} ></img>
             </div>
 
