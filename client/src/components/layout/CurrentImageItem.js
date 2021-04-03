@@ -99,32 +99,31 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
     }
 
     return (
-        <motion.div className="current-image-page below-nav">
+        <div className="current-image-page below-nav">
             <KeyboardEventHandler handleKeys={['f', 'esc', 'left', 'right']} onKeyEvent={(key, e) => keyHandler(key)} />
             <a className="exit-button" onClick={() => exitCurrentImage()}>
                 <i className="fas fa-times fa-3x"></i>
             </a>
             <div className="current">
-
                 <img className="current-image" src={currentImage.fileLocation} ></img>
             </div>
 
             <div className="current-image-info">
-                <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                <div >
                     <h2 className="current-image-camera">{currentImage.camera}</h2>
-                </motion.div>
-                <motion.div>
+                </div>
+                <div>
                     <h2 className="current-image-camera">{currentImage.focalLength}mm</h2>
-                </motion.div>
-                <motion.div>
+                </div>
+                <div>
                     <h2 className="current-image-camera">f/{currentImage.fStop}</h2>
-                </motion.div>
-                <motion.div>
+                </div>
+                <div>
                     <h2 className="current-image-camera">{currentImage.shutterSpeed}</h2>
-                </motion.div>
-                <motion.div>
+                </div>
+                <div>
                     <h2 className="current-image-camera">ISO {currentImage.iso}</h2>
-                </motion.div>
+                </div>
             </div>
             <div className="carousel">
                 <i className="fas fa-chevron-left fa-5x current-prev" onClick={() => prevClick()}></i>
@@ -136,9 +135,8 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                     </button>
                 ))}
                 <i className="fas fa-chevron-right fa-5x current-next" onClick={() => nextClick()}></i>
-
             </div>
-        </motion.div>
+        </div>
     )
 }
 

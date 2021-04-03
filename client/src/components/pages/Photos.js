@@ -67,32 +67,31 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
     };
 
     return (
-        <AnimateSharedLayout type="crossfade">
-            <AnimatePresence>
+            <div>
                 {!currentImage ?
                     (
-                        <motion.div className='below-nav' initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                        <div className='below-nav'>
                             {/* ALBUM NAME AND DESCRIPTION */}
                             <div className="container photo-header px-5">
                                 {/* ALBUM DESCRIPTION */}
                                 <div className='container' >
-                                    <AnimatePresence>
+                                    <div>
                                         {
                                             currentAlbum === null ?
                                                 <h1></h1> :
                                                 currentAlbum.title === 'All Photos' ?
-                                                    <motion.h1 key={currentAlbum._id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} >Photography</motion.h1> :
-                                                    <motion.h1 key={currentAlbum._id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} >{currentAlbum.title}</motion.h1>
+                                                    <h1>Photography</h1> :
+                                                    <h1>{currentAlbum.title}</h1>
                                         }
-                                    </AnimatePresence>
+                                    </div>
 
-                                    <AnimatePresence>
+                                    <div>
                                         {
                                             currentAlbum === null ?
                                                 <p></p> :
-                                                <motion.p key={currentAlbum._id} initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.0 }}>{currentAlbum.description}</motion.p>
+                                                <p>{currentAlbum.description}</p>
                                         }
-                                    </AnimatePresence>
+                                    </div>
                                     <br />
                                     {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
                                 </div>
@@ -104,7 +103,7 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                             </div>
 
                             {/* columnClassName given to each column created */}
-                            <motion.div variants={container} initial="hidden" animate="visible" >
+                            <div>
                                 <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
                                     {
                                         loadingImages || images === null ?
@@ -114,13 +113,12 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                                                 filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)
                                     }
                                 </Masonry>
-                            </motion.div>
+                            </div>
 
-                        </motion.div>
+                        </div>
                     ) :
                     <CurrentImageItem layoutId="current" />}
-            </AnimatePresence>
-        </AnimateSharedLayout>
+            </div>
     );
 };
 
