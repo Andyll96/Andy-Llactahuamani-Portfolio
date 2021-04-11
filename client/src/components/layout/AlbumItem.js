@@ -6,6 +6,7 @@ import { setCurrentAlbum, setFilteredImages } from '../../actions/photosActions'
 
 const AlbumItem = ({ photos: { images, currentAlbum }, album, setCurrentAlbum, setFilteredImages }) => {
 
+
     useEffect(() => {
         console.log('AlbumItem useEffect HERE');
         if (album.title === 'All Photos' && currentAlbum === null) {
@@ -32,13 +33,9 @@ const AlbumItem = ({ photos: { images, currentAlbum }, album, setCurrentAlbum, s
     // console.log(album);
 
     return (
-        <motion.button onClick={() => buttonClick()}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.8 }}
-        >
+        <button onClick={() => buttonClick()}>
             {album.title}
-        </motion.button>
+        </button>
     )
 }
 

@@ -67,58 +67,66 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
     };
 
     return (
-            <div>
-                {!currentImage ?
-                    (
-                        <div className='below-nav'>
-                            {/* ALBUM NAME AND DESCRIPTION */}
-                            <div className="container photo-header px-5">
-                                {/* ALBUM DESCRIPTION */}
-                                <div className='container' >
-                                    <div>
-                                        {
-                                            currentAlbum === null ?
-                                                <h1></h1> :
-                                                currentAlbum.title === 'All Photos' ?
-                                                    <h1>Photography</h1> :
-                                                    <h1>{currentAlbum.title}</h1>
-                                        }
-                                    </div>
-
-                                    <div>
-                                        {
-                                            currentAlbum === null ?
-                                                <p></p> :
-                                                <p>{currentAlbum.description}</p>
-                                        }
-                                    </div>
-                                    <br />
-                                    {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
-                                </div>
-                                {/* ALBUM NAVBAR */}
-                                <div className="album-nav" style={loadingCenter}>
-                                    {/* Album Names */}
-                                    {loadingAlbums || albums === null || images == null ? (<Spinner />) : !loadingAlbums && albums.length === 0 ? (<p> No Albums to show</p>) : albums.map(album => <AlbumItem album={album} key={album._id} />)}
-                                </div>
-                            </div>
-
-                            {/* columnClassName given to each column created */}
-                            <div>
-                                <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
+        <div>
+            {!currentImage ?
+                (
+                    <div className='below-nav'>
+                        {/* ALBUM NAME AND DESCRIPTION */}
+                        <div className="container photo-header px-5">
+                            {/* ALBUM DESCRIPTION */}
+                            <div className='container' >
+                                <div>
                                     {
-                                        loadingImages || images === null ?
-                                            <Spinner /> :
-                                            !loadingImages && filteredImages === null ?
-                                                images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) :
-                                                filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)
+                                        currentAlbum === null ?
+                                            <h1></h1> :
+                                            currentAlbum.title === 'All Photos' ?
+                                                <h1>Photography</h1> :
+                                                <h1>{currentAlbum.title}</h1>
                                     }
-                                </Masonry>
-                            </div>
+                                </div>
 
+                                <div>
+                                    {
+                                        currentAlbum === null ?
+                                            <p></p> :
+                                            <p>{currentAlbum.description}</p>
+                                    }
+                                </div>
+                                <br />
+                                {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
+                            </div>
+                            {/* ALBUM NAVBAR */}
+                            <div className="album-nav" style={loadingCenter}>
+                                {/* Album Names */}
+                                {loadingAlbums || albums === null || images == null ?
+                                    (<Spinner />) :
+                                    !loadingAlbums && albums.length === 0 ?
+                                        (<p> No Albums to show</p>) :
+                                        albums.map((album, i) => (
+                                            <div>
+                                                <AlbumItem album={album} key={album._id} />
+                                            </div>
+                                        ))}
+                            </div>
                         </div>
-                    ) :
-                    <CurrentImageItem layoutId="current" />}
-            </div>
+
+                        {/* columnClassName given to each column created */}
+                        <div>
+                            <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
+                                {
+                                    loadingImages || images === null ?
+                                        <Spinner /> :
+                                        !loadingImages && filteredImages === null ?
+                                            images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) :
+                                            filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)
+                                }
+                            </Masonry>
+                        </div>
+
+                    </div>
+                ) :
+                <CurrentImageItem layoutId="current" />}
+        </div>
     );
 };
 
