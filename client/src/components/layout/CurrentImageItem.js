@@ -11,15 +11,14 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
     let prevImage = null;
 
     useEffect(() => {
-        // TODO: THIS MAY HAVE TO CHANGE DEPENDING ON HOW THE PAGE LOADS ON DIFFERENT DEVICES
-        window.scrollTo(0, 110);
+        // TODO: must fix locked scrolling
         document.body.style.overflow = 'hidden';
     }, []);
-
-
+    
+    
     const exitCurrentImage = () => {
+        // TODO: must fix locked scrolling
         document.body.style.overflow = 'unset';
-        window.scrollTo(0, 0);
         clearCurrentImage();
     }
 
@@ -99,44 +98,57 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
     }
 
     return (
-        <div className="current-image-page below-nav">
-            <KeyboardEventHandler handleKeys={['f', 'esc', 'left', 'right']} onKeyEvent={(key, e) => keyHandler(key)} />
-            <a className="exit-button" onClick={() => exitCurrentImage()}>
-                <i className="fas fa-times fa-3x"></i>
-            </a>
-            <div className="current">
-                <img className="current-image" src={currentImage.fileLocation} ></img>
-            </div>
+        <AnimatePresence>
+            {currentImage &&
+                <motion.div className="current-image-page"
+                initial={{opacity: 0, y: 50}}
+                animate={{opacity: 1, y: 0}}
+                exit={{opacity: 0}}
+                style={{
+                    position: "fixed",
+                    top: "0px",
+                    background: "white"
+                }}
+                >
+                    <KeyboardEventHandler handleKeys={['f', 'esc', 'left', 'right']} onKeyEvent={(key, e) => keyHandler(key)} />
+                    <a className="exit-button" onClick={() => exitCurrentImage()}>
+                        <i className="fas fa-times fa-3x"></i>
+                    </a>
+                    <div className="current">
+                        <img className="current-image" src={currentImage.fileLocation} ></img>
+                    </div>
 
-            <div className="current-image-info">
-                <div >
-                    <h2 className="current-image-camera">{currentImage.camera}</h2>
-                </div>
-                <div>
-                    <h2 className="current-image-camera">{currentImage.focalLength}mm</h2>
-                </div>
-                <div>
-                    <h2 className="current-image-camera">f/{currentImage.fStop}</h2>
-                </div>
-                <div>
-                    <h2 className="current-image-camera">{currentImage.shutterSpeed}</h2>
-                </div>
-                <div>
-                    <h2 className="current-image-camera">ISO {currentImage.iso}</h2>
-                </div>
-            </div>
-            <div className="carousel">
-                <i className="fas fa-chevron-left fa-5x current-prev" onClick={() => prevClick()}></i>
-                {setCarouselImages()}
-                {console.log(carouselImages)}
-                {carouselImages.map(image => (
-                    <button key={image._id} className="carousel-link" onClick={() => setCurrent(image)}>
-                        <img className="carousel-img" src={image.thumbLocation}></img>
-                    </button>
-                ))}
-                <i className="fas fa-chevron-right fa-5x current-next" onClick={() => nextClick()}></i>
-            </div>
-        </div>
+                    <div className="current-image-info">
+                        <div >
+                            <h2 className="current-image-camera">{currentImage.camera}</h2>
+                        </div>
+                        <div>
+                            <h2 className="current-image-camera">{currentImage.focalLength}mm</h2>
+                        </div>
+                        <div>
+                            <h2 className="current-image-camera">f/{currentImage.fStop}</h2>
+                        </div>
+                        <div>
+                            <h2 className="current-image-camera">{currentImage.shutterSpeed}</h2>
+                        </div>
+                        <div>
+                            <h2 className="current-image-camera">ISO {currentImage.iso}</h2>
+                        </div>
+                    </div>
+                    <div className="carousel">
+                        <i className="fas fa-chevron-left fa-5x current-prev" onClick={() => prevClick()}></i>
+                        {setCarouselImages()}
+                        {console.log(carouselImages)}
+                        {carouselImages.map(image => (
+                            <button key={image._id} className="carousel-link" onClick={() => setCurrent(image)}>
+                                <img className="carousel-img" src={image.thumbLocation}></img>
+                            </button>
+                        ))}
+                        <i className="fas fa-chevron-right fa-5x current-next" onClick={() => nextClick()}></i>
+                    </div>
+                </motion.div>
+            }
+        </AnimatePresence>
     )
 }
 
