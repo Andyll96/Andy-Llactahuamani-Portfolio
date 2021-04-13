@@ -12,13 +12,13 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
 
     useEffect(() => {
         // TODO: must fix locked scrolling
-        document.body.style.overflow = 'hidden';
+        // document.body.style.overflow = 'hidden';
     }, []);
     
     
     const exitCurrentImage = () => {
         // TODO: must fix locked scrolling
-        document.body.style.overflow = 'unset';
+        // document.body.style.overflow = 'unset';
         clearCurrentImage();
     }
 

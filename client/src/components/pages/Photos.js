@@ -3,7 +3,7 @@ import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
 import { connect } from 'react-redux';
 import anime from 'animejs/lib/anime.es.js';
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
+import { animate, AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 import AlbumItem from '../layout/AlbumItem';
 import ImageItem from '../layout/ImageItem';
 import CurrentImageItem from '../layout/CurrentImageItem';
@@ -56,48 +56,59 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
         loadingCenter = {}
     }
 
+    let navVariants = {
+        closed: { opacity: 0 },
+        open: { opacity: 1 },
+    }
+
 
     return (
         <div>
-            <CurrentImageItem layoutId='current'/>
+            <CurrentImageItem layoutId='current' />
             <div className='below-nav'>
                 {/* ALBUM NAME AND DESCRIPTION */}
                 <div className="container photo-header px-5">
                     {/* ALBUM DESCRIPTION */}
                     <div className='container' >
-                        <div>
+                        {/* TODO: WORK ON EXIT ANIMATION */}
+                        <AnimatePresence>
                             {
                                 currentAlbum === null ?
                                     <h1></h1> :
-                                    currentAlbum.title === 'All Photos' ?
-                                        <h1>Photography</h1> :
-                                        <h1>{currentAlbum.title}</h1>
+                                    currentAlbum.title === 'All Photos' ? (
+                                        <motion.h1 initial={{ opacity: 0, y: 25 }} transition={{ delay: 0.3, duration: 1 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 25 }}>Photography</motion.h1>
+                                    ) : (
+                                        <motion.h1 initial={{ opacity: 0, y: 25 }} transition={{ delay: 0.3, duration: 1 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 25 }}>{currentAlbum.title}</motion.h1>
+                                    )
                             }
-                        </div>
-
-                        <div>
+                        </AnimatePresence>
+                        <motion.div initial={{ opacity: 0, y: 25 }} transition={{ delay: 1.15, duration: 1 }} animate={{ opacity: 1, y: 0 }}>
                             {
                                 currentAlbum === null ?
                                     <p></p> :
                                     <p>{currentAlbum.description}</p>
                             }
-                        </div>
+                        </motion.div>
                         <br />
                         {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
                     </div>
                     {/* ALBUM NAVBAR */}
-                    <div className="album-nav" style={loadingCenter}>
+                    <motion.div className="album-nav"  style={loadingCenter} initial={{opacity: 0}} transition={{ delay: 1.4, duration: 1 }} animate={{opacity: 1}} >
                         {/* Album Names */}
                         {loadingAlbums || albums === null || images == null ?
                             (<Spinner />) :
                             !loadingAlbums && albums.length === 0 ?
-                                (<p> No Albums to show</p>) :
-                                albums.map((album, i) => (
-                                    <div>
-                                        <AlbumItem album={album} key={album._id} />
-                                    </div>
-                                ))}
-                    </div>
+                                (<p> No Albums to show</p>) : (
+                                    <motion.div className="album-nav-list" transition={{staggerChildren: 0.8}}>
+                                        {albums.map((album, i) => (
+                                            <motion.div initial={{y:25}} animate={{y:0}}>
+                                                <AlbumItem album={album} key={album._id} />
+                                            </motion.div>
+                                        ))}
+                                    </motion.div>
+                                )
+                        }
+                    </motion.div>
                 </div>
 
                 {/* columnClassName given to each column created */}
