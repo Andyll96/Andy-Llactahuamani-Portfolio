@@ -113,8 +113,12 @@ body {
 .navbar {
   position: absolute;
   width: 87.5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding-top: 1rem;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -135,6 +139,8 @@ body {
 
 .navbar ul {
   list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -154,8 +160,10 @@ header {
   width: 100wh;
   background-color: #37577c;
   padding: 0 5rem;
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: repeat(2, auto);
+  -ms-grid-rows: (auto)[2];
+      grid-template-rows: repeat(2, auto);
 }
 
 header h1 {
@@ -167,8 +175,13 @@ header h1 {
   margin-top: 10rem;
   text-transform: uppercase;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column-reverse;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
 }
 
 header h3 {
@@ -180,14 +193,22 @@ header h3 {
 }
 
 header .container-socials {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header .container-socials .i-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header .container-socials i {
@@ -208,15 +229,24 @@ section {
 .section-quote {
   height: 55vh;
   background-color: white;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   text-align: center;
 }
 
 .section-quote :first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   font-size: 1.2rem;
   letter-spacing: -0.02rem;
   text-transform: uppercase;
@@ -233,27 +263,44 @@ section {
 }
 
 .section-quote :last-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .section-photo {
   background-color: #37577c;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  -ms-grid-columns: 3fr 1fr;
+      grid-template-columns: 3fr 1fr;
 }
 
 .section-photo a {
-  grid-column-start: 2;
-  justify-self: right;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-column-align: right;
+      justify-self: right;
   margin-right: 1rem;
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .section-photo #featured-photo-gallery-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .section-photo .featured-photo-gallery {
@@ -263,9 +310,12 @@ section {
 }
 
 .section-photo .featured-photo-gallery-nav {
-  align-self: center;
+  -ms-grid-row-align: center;
+      align-self: center;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
   color: grey;
 }
@@ -273,16 +323,27 @@ section {
 .section-film {
   background-color: white;
   height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .section-film div {
   margin-top: 2rem;
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   grid-gap: 3rem;
 }
 
@@ -298,19 +359,25 @@ section {
 .section-code .featured-code {
   height: inherit;
   padding: 1rem;
+  display: -ms-grid;
   display: grid;
   grid-gap: 2rem;
-  grid-template-rows: 5fr 1fr;
+  -ms-grid-rows: 5fr 1fr;
+      grid-template-rows: 5fr 1fr;
 }
 
 .section-code .git-container {
+  display: -ms-grid;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 1fr 2fr;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
 }
 
 .section-code .git-info {
-  align-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   color: white;
 }
 
@@ -334,13 +401,17 @@ section {
 }
 
 .section-code .links {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
 }
 
 .section-code .links div {
-  grid-column-start: 2;
-  justify-self: center;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .section-code .links div .button {
@@ -351,10 +422,19 @@ section {
 
 footer {
   height: 25vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 footer h3 {
@@ -370,19 +450,29 @@ footer a {
 
 .photo-header {
   height: 60vh;
+  display: -ms-grid;
   display: grid;
-  grid-template-rows: 5fr 1fr;
+  -ms-grid-rows: 5fr 1fr;
+      grid-template-rows: 5fr 1fr;
   height: 60vh;
 }
 
 .photo-header .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .photo-header h1 {
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   font-family: Old Standard, serif;
   font-weight: normal;
   font-size: 4.5rem;
@@ -390,25 +480,36 @@ footer a {
 }
 
 .photo-header .album-nav {
-  grid-row-start: 2;
+  -ms-grid-row: 2;
+      grid-row-start: 2;
   margin-bottom: 1.5rem;
 }
 
 .photo-header .album-nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   grid-gap: 5rem;
-  overflow: scroll;
+  overflow: none;
   margin-right: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: black 1px solid;
   overflow-y: hidden;
 }
 
 .photo-header .album-nav:hover {
+  cursor: -webkit-grab;
   cursor: grab;
 }
 
 .photo-header .album-nav:active {
+  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 
@@ -433,11 +534,14 @@ footer a {
 }
 
 .photo-header .album-description {
-  grid-row-start: 1;
+  -ms-grid-row: 1;
+      grid-row-start: 1;
   justify-items: center;
 }
 
 .my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   justify-self: center;
   margin-top: 1rem;
@@ -479,9 +583,16 @@ footer a {
 .current-image-page {
   height: 100vh;
   width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   justify-items: center;
 }
 
@@ -499,16 +610,23 @@ footer a {
 }
 
 .exit-button {
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   margin-right: 3rem;
   padding-top: 1rem;
   opacity: 20%;
 }
 
 .current {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .current-image {
@@ -541,18 +659,30 @@ footer a {
   width: 60vw;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .carousel {
   height: 19vh;
   width: 95vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   justify-self: center;
-  justify-content: space-evenly;
-  align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .carousel-link {
@@ -560,9 +690,15 @@ footer a {
   width: 12vw;
   border: none;
   background: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   overflow: hidden;
   outline: none;
   margin: 0 1rem 0 1rem;

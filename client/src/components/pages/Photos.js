@@ -3,7 +3,7 @@ import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
 import { connect } from 'react-redux';
 import anime from 'animejs/lib/anime.es.js';
-import { animate, AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import AlbumItem from '../layout/AlbumItem';
 import ImageItem from '../layout/ImageItem';
 import CurrentImageItem from '../layout/CurrentImageItem';
@@ -56,11 +56,20 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
         loadingCenter = {}
     }
 
-    let navVariants = {
-        closed: { opacity: 0 },
-        open: { opacity: 1 },
+    const imageListVariant = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.5
+            }
+        }
     }
 
+    const imageVariant = {
+        hidden: { opacity: 0 },
+        show: { opacity: 1 }
+    }
 
     return (
         <div>
@@ -93,15 +102,15 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                         {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
                     </div>
                     {/* ALBUM NAVBAR */}
-                    <motion.div className="album-nav"  style={loadingCenter} initial={{opacity: 0}} transition={{ delay: 1.4, duration: 1 }} animate={{opacity: 1}} >
+                    <motion.div className="album-nav" style={loadingCenter} initial={{ opacity: 0 }} transition={{ delay: 1.4, duration: 1 }} animate={{ opacity: 1 }} >
                         {/* Album Names */}
                         {loadingAlbums || albums === null || images == null ?
                             (<Spinner />) :
                             !loadingAlbums && albums.length === 0 ?
                                 (<p> No Albums to show</p>) : (
-                                    <motion.div className="album-nav-list" transition={{staggerChildren: 0.8}}>
+                                    <motion.div className="album-nav-list" transition={{ staggerChildren: 0.8 }}>
                                         {albums.map((album, i) => (
-                                            <motion.div initial={{y:25}} animate={{y:0}}>
+                                            <motion.div initial={{ y: 25 }} animate={{ y: 0 }}>
                                                 <AlbumItem album={album} key={album._id} />
                                             </motion.div>
                                         ))}
@@ -112,17 +121,25 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                 </div>
 
                 {/* columnClassName given to each column created */}
-                <div>
-                    <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
-                        {
-                            loadingImages || images === null ?
-                                <Spinner /> :
-                                !loadingImages && filteredImages === null ?
-                                    images.map(image => <ImageItem className='my-1' image={image} key={image._id} />) :
-                                    filteredImages.map((image, i) => <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />)
-                        }
-                    </Masonry>
-                </div>
+                <Masonry breakpointCols={breakpointColumnsObj} className="my-masonry-grid mx-5" columnClassName="my-masonry-grid_column">
+                    {
+                        loadingImages || images === null ?
+                            <Spinner /> :
+                            !loadingImages && filteredImages === null ?
+                                images.map(image => (
+                                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                                        <ImageItem className='my-1' image={image} key={image._id} />
+                                    </motion.div>
+                                ))
+                                :
+                                filteredImages.map((image, i) => (
+                                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                                        <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />
+                                    </motion.div>
+
+                                ))
+                    }
+                </Masonry>
             </div>
         </div>
 

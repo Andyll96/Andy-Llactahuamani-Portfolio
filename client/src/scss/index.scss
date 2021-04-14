@@ -327,13 +327,14 @@ footer {
       margin-bottom: 1.5rem;
 
       &-list{
-        display: flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       grid-gap: 5rem;
-      overflow: scroll;
+      overflow: none;
       margin-right: 2.5rem;
-      // border: black 1px dashed;
+      padding-bottom: 1rem;
+      border-bottom: black 1px solid;
       overflow-y: hidden;
       }
 

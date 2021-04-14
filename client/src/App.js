@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+// import { AnimatePresence, motion } from 'framer-motion';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -19,7 +19,6 @@ const App = () => {
         <Fragment>
           <Navbar />
           <div className='container'>
-            <AnimatePresence>
               <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/about' component={About} />
@@ -27,7 +26,6 @@ const App = () => {
                 <Route exact path='/film' component={Film} />
                 <Route exact path='/code' component={Code} />
               </Switch>
-            </AnimatePresence>
           </div>
           <Footer />
         </Fragment>
