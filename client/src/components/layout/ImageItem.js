@@ -10,15 +10,16 @@ const ImageItem = ({ photos: { currentImage }, image, setCurrentImage, clearCurr
     // initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.5 }}
 
     const item = {
-        hidden: { scale: 0, opacity: 0 },
+        hidden: { y: 25, opacity: 0 },
         visible: {
-            scale: 1,
+            y: 0,
             opacity: 1,
             transition: {
-                duration: 1.5
+                duration: 1
             }
         }
     };
+
 
     const setCurrent = () => {
         console.log(image.fileName + ' Clicked');
@@ -30,12 +31,13 @@ const ImageItem = ({ photos: { currentImage }, image, setCurrentImage, clearCurr
         clearCurrentImage();
     }
     return (
-
-        <motion.div ref={ref} className="grid-item my-1" variants={item}>
-            <button href="" className='grid-link' onClick={() => setCurrent()}>
-                <img className='grid-img' src={image.thumbLocation} alt="" />
-            </button>
-        </motion.div>
+        <AnimatePresence>
+            <motion.div ref={ref} className="grid-item my-1" variants={item} initial="hidden" animate="visible" exit="hidden">
+                <button href="" className='grid-link' onClick={() => setCurrent()}>
+                    <img className='grid-img' src={image.thumbLocation} alt="" />
+                </button>
+            </motion.div>
+        </AnimatePresence>
 
     )
 }

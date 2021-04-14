@@ -3,7 +3,7 @@ import Spinner from '../layout/Spinner';
 import Masonry from 'react-masonry-css';
 import { connect } from 'react-redux';
 import anime from 'animejs/lib/anime.es.js';
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 import AlbumItem from '../layout/AlbumItem';
 import ImageItem from '../layout/ImageItem';
 import CurrentImageItem from '../layout/CurrentImageItem';
@@ -57,18 +57,23 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
     }
 
     const imageListVariant = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
+        hidden: {},
+        visible: {
             transition: {
-                staggerChildren: 0.5
+                staggerChildren: 1
             }
         }
     }
 
     const imageVariant = {
-        hidden: { opacity: 0 },
-        show: { opacity: 1 }
+        hidden: { y: 25, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 1
+            }
+        }
     }
 
     return (
@@ -81,23 +86,22 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                     <div className='container' >
                         {/* TODO: WORK ON EXIT ANIMATION */}
                         <AnimatePresence>
-                            {
-                                currentAlbum === null ?
-                                    <h1></h1> :
-                                    currentAlbum.title === 'All Photos' ? (
-                                        <motion.h1 initial={{ opacity: 0, y: 25 }} transition={{ delay: 0.3, duration: 1 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 25 }}>Photography</motion.h1>
-                                    ) : (
-                                        <motion.h1 initial={{ opacity: 0, y: 25 }} transition={{ delay: 0.3, duration: 1 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 25 }}>{currentAlbum.title}</motion.h1>
-                                    )
+                            {/* <motion.div initial={{ opacity: 0, y: 25 }} transition={{ delay: 0.3, duration: 1 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 25 }}> */}
+                            {currentAlbum === null ?
+                                <h1></h1> :
+                                currentAlbum.title === 'All Photos' ? 
+                                <motion.h1 key={currentAlbum._id} initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1 }} >Photography</motion.h1> :
+                                <motion.h1 key={currentAlbum._id} initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3, duration: 1 }} >{currentAlbum.title}</motion.h1>
                             }
+                            {/* </motion.div> */}
                         </AnimatePresence>
-                        <motion.div initial={{ opacity: 0, y: 25 }} transition={{ delay: 1.15, duration: 1 }} animate={{ opacity: 1, y: 0 }}>
+                        <AnimatePresence>
                             {
                                 currentAlbum === null ?
                                     <p></p> :
-                                    <p>{currentAlbum.description}</p>
+                                    <motion.p key={currentAlbum._id} initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.75 }}>{currentAlbum.description}</motion.p>
                             }
-                        </motion.div>
+                        </AnimatePresence>
                         <br />
                         {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
                     </div>
@@ -126,17 +130,12 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                         loadingImages || images === null ?
                             <Spinner /> :
                             !loadingImages && filteredImages === null ?
-                                images.map(image => (
-                                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                                        <ImageItem className='my-1' image={image} key={image._id} />
-                                    </motion.div>
+                                images.map((image, i) => (
+                                    <ImageItem className='my-1' image={image} key={image._id} />
                                 ))
                                 :
                                 filteredImages.map((image, i) => (
-                                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                                        <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />
-                                    </motion.div>
-
+                                    <ImageItem ref={filteredImageElements.current[i]} image={image} key={image._id} />
                                 ))
                     }
                 </Masonry>
