@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 import { connect } from "react-redux";
 import { setCurrentImage, clearCurrentImage, setCurrentAlbum } from "../../actions/photosActions";
 
 const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, currentAlbum }, setCurrentImage, clearCurrentImage }) => {
+    
 
     let carouselImages = [];
     let nextImage = null;
@@ -14,8 +15,7 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
         // TODO: must fix locked scrolling
         // document.body.style.overflow = 'hidden';
     }, []);
-    
-    
+        
     const exitCurrentImage = () => {
         // TODO: must fix locked scrolling
         // document.body.style.overflow = 'unset';
