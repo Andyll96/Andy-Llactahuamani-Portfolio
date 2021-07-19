@@ -4,18 +4,19 @@ import KeyboardEventHandler from 'react-keyboard-event-handler';
 import { connect } from "react-redux";
 import { setCurrentImage, clearCurrentImage, setCurrentAlbum } from "../../actions/photosActions";
 
-const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, currentAlbum }, setCurrentImage, clearCurrentImage }) => {
-    
+const CurrentImageItem = ({ photos: { images, currentImage, currentAlbum }, setCurrentImage, clearCurrentImage }) => {
+
 
     let carouselImages = [];
     let nextImage = null;
     let prevImage = null;
 
+
     useEffect(() => {
         // TODO: must fix locked scrolling
         // document.body.style.overflow = 'hidden';
     }, []);
-        
+
     const exitCurrentImage = () => {
         // TODO: must fix locked scrolling
         // document.body.style.overflow = 'unset';
@@ -101,22 +102,31 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
         <AnimatePresence>
             {currentImage &&
                 <motion.div className="current-image-page"
-                initial={{opacity: 0, y: 50}}
-                animate={{opacity: 1, y: 0}}
-                exit={{opacity: 0}}
-                style={{
-                    position: "fixed",
-                    top: "0px",
-                    background: "white"
-                }}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    style={{
+                        position: "fixed",
+                        top: "0px",
+                        background: "white"
+                    }}
                 >
                     <KeyboardEventHandler handleKeys={['f', 'esc', 'left', 'right']} onKeyEvent={(key, e) => keyHandler(key)} />
                     <a className="exit-button" onClick={() => exitCurrentImage()}>
                         <i className="fas fa-times fa-3x"></i>
                     </a>
-                    <div className="current">
-                        <img className="current-image" src={currentImage.fileLocation} ></img>
-                    </div>
+                    <AnimatePresence>
+                        {
+                            <motion.div className="current">
+                                <motion.img className="current-image" src={currentImage.fileLocation}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: 0.5 }}
+                                    exit={{ opacity: 0 }}
+                                ></motion.img>
+                            </motion.div>
+                        }
+                    </AnimatePresence>
 
                     <div className="current-image-info">
                         <div >
@@ -136,15 +146,25 @@ const CurrentImageItem = ({ photos: { images, filteredImages, currentImage, curr
                         </div>
                     </div>
                     <div className="carousel">
-                        <i className="fas fa-chevron-left fa-5x current-prev" onClick={() => prevClick()}></i>
-                        {setCarouselImages()}
-                        {console.log(carouselImages)}
-                        {carouselImages.map(image => (
-                            <button key={image._id} className="carousel-link" onClick={() => setCurrent(image)}>
-                                <img className="carousel-img" src={image.thumbLocation}></img>
-                            </button>
-                        ))}
-                        <i className="fas fa-chevron-right fa-5x current-next" onClick={() => nextClick()}></i>
+                        <AnimatePresence>
+                            <i className="fas fa-chevron-left fa-5x current-prev" onClick={() => prevClick()}></i>
+                            {setCarouselImages()}
+                            {console.log(carouselImages)}
+                            {carouselImages.map(image => (
+                                <motion.button key={image._id} className="carousel-link" onClick={() => setCurrent(image)}
+                                // initial={{ opacity: 0 }}
+                                // animate={{ opacity: 1 }}
+                                // transition={{ delay: 0.3 }}
+                                >
+                                    <motion.img className="carousel-img" src={image.thumbLocation}
+                                    // initial={nextTrigger? "x:50" : "x:-50"}
+                                    // transition={{duration: 0.8}}
+                                    // animate={{x:0}}
+                                    ></motion.img>
+                                </motion.button>
+                            ))}
+                            <i className="fas fa-chevron-right fa-5x current-next" onClick={() => nextClick()}></i>
+                        </AnimatePresence>
                     </div>
                 </motion.div>
             }

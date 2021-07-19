@@ -106,22 +106,22 @@ const Photos = ({ photos: { albums, images, filteredImages, loadingAlbums, loadi
                         {/* <p className='px-3'> This is a collection of my work. I hope you enjoy it as much as I did creating it.</p> */}
                     </div>
                     {/* ALBUM NAVBAR */}
-                    <motion.div className="album-nav" style={loadingCenter} initial={{ opacity: 0 }} transition={{ delay: 1.4, duration: 1 }} animate={{ opacity: 1 }} >
+                    <motion.div className="album-nav" initial={{ opacity: 0 }} transition={{ delay: 1.4, duration: 1 }} animate={{ opacity: 1 }} >
                         {/* Album Names */}
                         {loadingAlbums || albums === null || images == null ?
                             (<Spinner />) :
                             !loadingAlbums && albums.length === 0 ?
                                 (<p> No Albums to show</p>) : (
-                                    <motion.div className="album-nav-list" transition={{ staggerChildren: 0.8 }}>
+                                    <div className="album-nav-list">
                                         {albums.map((album, i) => (
-                                            <motion.div initial={{ y: 25 }} animate={{ y: 0 }}>
                                                 <AlbumItem album={album} key={album._id} />
-                                            </motion.div>
                                         ))}
-                                    </motion.div>
+                                    </div>
                                 )
                         }
+                    <hr/>
                     </motion.div>
+                    
                 </div>
 
                 {/* columnClassName given to each column created */}

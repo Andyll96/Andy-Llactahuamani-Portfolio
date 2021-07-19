@@ -306,6 +306,8 @@ footer {
   display: grid;
   grid-template-rows: 5fr 1fr;
   height: 60vh;
+  padding-bottom: 2rem;
+  // border: black 2px solid;
 
   .container {
     display: flex;
@@ -324,27 +326,26 @@ footer {
   .album {
     &-nav {
       grid-row-start: 2;
-      margin-bottom: 1.5rem;
-
+      margin-bottom: 3rem;
+      overflow-x: auto;
+      // border: black solid 2px;
+      
       &-list{
       display: flex;
       align-items: center;
       justify-content: center;
       grid-gap: 5rem;
-      overflow: scroll;
       margin-right: 2.5rem;
       padding-bottom: 1rem;
-      border-bottom: black 1px solid;
-      overflow-y: hidden;
       }
 
-      &:hover{
-        cursor: grab;
-      }
-      // change to only show up when there is available scroll on smaller screens
-      &:active{
-        cursor: grabbing;
-      }
+      // &:hover{
+      //   cursor: grab;
+      // }
+      // // change to only show up when there is available scroll on smaller screens
+      // &:active{
+      //   cursor: grabbing;
+      // }
 
       button {
         border: none;
